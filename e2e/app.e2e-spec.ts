@@ -9,6 +9,6 @@ describe('news-app App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getHeadingText()).toEqual('News App Search for news from various sources');
   });
 });
