@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { RequestsService } from './services/requests.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
+import {RequestsService} from './services/requests.service';
+import {FormGroup} from '@angular/forms';
+import {FormlyFieldConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'app-root',
@@ -8,35 +9,42 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'News App';
-  subtitle = 'Search for news from various sources';
+
   fetchingData: Boolean;
 
   categories = ['business', 'entertainment', 'gaming', 'general', 'healt-and-medical', 'music',
     'politics', 'science-and-nature', 'sport', 'technology'];
   headlines: any;
-  rForm: FormGroup;
 
-  constructor(private req: RequestsService, private fb: FormBuilder) {
-    this.createForm();
+  constructor(private req: RequestsService) {
   }
 
-  createForm() {
-    this.rForm = this.fb.group({
-      topic: [null],
-      category: [null]
-    });
+  form = new FormGroup({});
+  model = {topic: ''};
+  fields: FormlyFieldConfig[] = [{
+    key: 'topic',
+    type: 'input',
+    templateOptions: {
+      type: 'text',
+      label: 'Topic',
+      placeholder: 'Enter topic',
+      required: true,
+    },
+
+  }];
+
+  submit(model) {
+    console.log(model);
   }
+
 
   getHeadlines(formData) {
     this.fetchingData = true;
-    this.title = 'Fetching data, please wait.';
 
     this.req.getHeadlines(formData).subscribe(
       data => {
         console.log(data);
         this.headlines = data;
-        this.title = 'News App';
         this.fetchingData = false;
 
       },
