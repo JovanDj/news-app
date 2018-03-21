@@ -11,12 +11,17 @@ import {FormlyModule} from '@ngx-formly/core';
 import {NavbarComponent} from './navbar/navbar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule} from '@angular/router';
+import { HeadlinesComponent } from './headlines/headlines.component';
+import {AppRoutingModule} from './app-routing.module';
+import { EverythingComponent } from './everything/everything.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    HeadlinesComponent,
+    EverythingComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,7 @@ import {RouterModule} from '@angular/router';
     NgbModule.forRoot(),
     FormlyBootstrapModule,
     FormlyModule.forRoot(),
-    RouterModule
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })

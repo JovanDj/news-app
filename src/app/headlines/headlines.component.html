@@ -1,0 +1,52 @@
+<!-- Page Content -->
+<div class="container-fluid">
+
+  <header>
+
+    <span *ngIf="headlines != undefined">Number of articles: {{ headlines.articles.length | number }}</span>
+
+    <form [formGroup]="form" (ngSubmit)="getHeadlines(model)">
+      <formly-form [form]="form" [fields]="fields" [model]="model">
+        <button [disabled]="form.invalid" type="submit" class="btn btn-default">Submit</button>
+      </formly-form>
+    </form>
+    <hr>
+  </header>
+</div>
+
+<div *ngIf="headlines != undefined">
+
+  <div class="articles" *ngFor="let headline of headlines.articles; index as i">
+
+    <div class="container-fluid">
+
+
+      <div class="row py-1">
+        <div class="col-md-7">
+          <a [href]="headline.url">
+
+            <img class="img-fluid rounded" [src]="headline.urlToImage" [title]="headline.title" alt="Article image">
+
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h2>
+            {{i + 1 | number }}:
+            <a [href]="headline.url">{{ headline.title }}</a>
+
+          </h2>
+
+          <p>{{ headline.description }}</p>
+          <a class="btn btn-outline-primary btn-link" [href]="headline.url">Read the article</a>
+
+
+        </div>
+      </div>
+      <hr>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- /.container -->
