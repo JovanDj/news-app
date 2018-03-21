@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {HeadlinesComponent} from './headlines/headlines.component';
 import {EverythingComponent} from './everything/everything.component';
+import {SourcesComponent} from './sources/sources.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,15 @@ const routes: Routes = [
   {
     path: 'everything',
     component: EverythingComponent
+  },
+  {
+    path: 'sources',
+    component: SourcesComponent
+  },
+
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

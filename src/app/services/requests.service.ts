@@ -1,23 +1,34 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {environment, environment} from '../../environments/environment';
 
 @Injectable()
 export class RequestsService {
+
+  url: string = environment.baseUrl + '/top-headlines';
+
 
   constructor(private http: HttpClient) {
 
   }
 
   getHeadlines(formData) {
+    let params: HttpParams = new HttpParams();
+    params = params.append('topic', formData.topic);
 
-    const token = '2c35501e6a3840d6bd4d7bb11cd57e0d';
+    for (const category of formData.category) {
+      params = params.append('category', category);
+    }
 
-    let url = `https://newsapi.org/v2/everything?q=${formData.topic}&sortby=popularity&language=en`;
-    if (formData.topic === null) {
-      url = 'https://newsapi.org/v2/top-headlines?sources=bbc-news&language=en';
-    };
+    for (const country of formData.country) {
+      params = params.append('country', country);
+    }
 
-    return this.http.get(url);
+    return this.http.get(this.url, {params: params});
+  }
+
+  getSources() {
+    return this.http.get(environment.baseUrl + '/sources');
   }
 
 }

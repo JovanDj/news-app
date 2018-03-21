@@ -1,5 +1,5 @@
 <!-- Page Content -->
-<div class="container-fluid">
+<section class="container-fluid">
 
   <header>
 
@@ -12,41 +12,49 @@
     </form>
     <hr>
   </header>
+</section>
+
+<div *ngIf="showSpinner" class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
 </div>
 
-<div *ngIf="headlines != undefined">
 
+<section *ngIf="headlines != undefined">
   <div class="articles" *ngFor="let headline of headlines.articles; index as i">
-
     <div class="container-fluid">
-
-
       <div class="row py-1">
         <div class="col-md-7">
           <a [href]="headline.url">
-
             <img class="img-fluid rounded" [src]="headline.urlToImage" [title]="headline.title" alt="Article image">
-
           </a>
         </div>
         <div class="col-md-5">
-          <h2>
+          <h5>
             {{i + 1 | number }}:
             <a [href]="headline.url">{{ headline.title }}</a>
-
-          </h2>
-
+          </h5>
+          <p><strong>Author: {{headline.author}}</strong></p>
+          <p><strong>{{headline.publishedAt | date:'mediumDate'}}</strong></p>
           <p>{{ headline.description }}</p>
           <a class="btn btn-outline-primary btn-link" [href]="headline.url">Read the article</a>
-
-
         </div>
       </div>
       <hr>
-
     </div>
   </div>
 
-</div>
+
+</section>
 
 <!-- /.container -->
