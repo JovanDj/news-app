@@ -7,7 +7,7 @@
 
     <form [formGroup]="form" (ngSubmit)="getHeadlines(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
-        <button [disabled]="form.invalid" type="submit" class="btn btn-default">Submit</button>
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
       </formly-form>
     </form>
     <hr>
@@ -43,8 +43,8 @@
           </a>
         </div>
         <div class="col-md-5">
-          <h5>
-            <span class="badge badge-light">{{i + 1 | number }}</span>
+          <h5 class="text-center">
+            <span class="badge badge-light pull-left">{{i + 1 | number }}</span>
             <a [href]="headline.url">{{ headline.title }}</a>
           </h5>
           <p class="mb-2 p-0"><strong>Source: {{headline.source.name}}</strong></p>

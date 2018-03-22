@@ -1,3 +1,60 @@
-<p>
-  everything works!
-</p>
+<!-- Page Content -->
+<section class="container-fluid">
+
+  <header>
+
+    <span *ngIf="everything != undefined">Number of articles: {{ everything.totalResults | number }}</span>
+
+    <form [formGroup]="form" (ngSubmit)="getEverything(model)">
+      <formly-form [form]="form" [fields]="fields" [model]="model">
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+      </formly-form>
+    </form>
+    <hr>
+  </header>
+</section>
+
+<div *ngIf="showSpinner" class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+
+
+<section *ngIf="everything != undefined">
+  <div class="articles" *ngFor="let everything of everything.articles; index as i">
+    <div class="container-fluid">
+      <div class="row py-1">
+        <div class="col-md-7">
+          <a [href]="everything.url">
+            <img class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
+                 [src]="everything.urlToImage"
+                 [title]="everything.title"
+                 alt="Article image">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h5 class="text-center">
+            <span class="badge badge-light pull-left">{{i + 1 | number }}</span>
+            <a [href]="everything.url">{{ everything.title }}</a>
+          </h5>
+          <p class="mb-2 p-0"><strong>Source: {{everything.source.name}}</strong></p>
+          <p class="mb-2 p-0"><strong>Author: {{everything.author}}</strong></p>
+          <p class="mb-2 p-0"><strong>{{everything.publishedAt | date:'mediumDate'}}</strong></p>
+          <p class="mb-2 p-0">{{ everything.description }}</p>
+          <a class="btn btn-outline-primary btn-link" [href]="everything.url">Read the article</a>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</section>

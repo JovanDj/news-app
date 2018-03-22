@@ -22,7 +22,6 @@ export class HeadlinesComponent implements OnInit {
   form = new FormGroup({});
   model = {topic: '', category: ['general'], country: ['us']};
 
-
   fields: FormlyFieldConfig[] = [{
     fieldGroupClassName: 'row',
     fieldGroup: [

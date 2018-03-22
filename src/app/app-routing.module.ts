@@ -26,7 +26,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'headlines'
   }
 ];
 
@@ -34,7 +34,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     preloadingStrategy: PreloadAllModules,
     useHash: true,
-    onSameUrlNavigation: 'ignore'
+    onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]
 })
