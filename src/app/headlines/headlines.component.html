@@ -1,5 +1,5 @@
 <!-- Page Content -->
-<section class="container-fluid">
+<section class="container-fluid mt-1">
 
   <header>
 
@@ -7,7 +7,11 @@
 
     <form [formGroup]="form" (ngSubmit)="getHeadlines(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
-        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
       </formly-form>
     </form>
     <hr>
@@ -29,14 +33,13 @@
   <div class="sk-circle12 sk-child"></div>
 </div>
 
-
 <section *ngIf="headlines != undefined">
   <div class="articles" *ngFor="let headline of headlines.articles; index as i">
     <div class="container-fluid">
       <div class="row py-1">
         <div class="col-md-7">
           <a [href]="headline.url">
-            <img class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
+            <img on class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
                  [src]="headline.urlToImage"
                  [title]="headline.title"
                  alt="Article image">

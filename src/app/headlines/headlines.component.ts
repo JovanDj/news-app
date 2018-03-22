@@ -26,18 +26,7 @@ export class HeadlinesComponent implements OnInit {
     fieldGroupClassName: 'row',
     fieldGroup: [
       {
-        className: 'col-4',
-        key: 'topic',
-        type: 'input',
-        templateOptions: {
-          type: 'text',
-          label: 'Topic',
-          placeholder: 'Enter topic',
-        }
-      },
-      {
-        className: 'col-4',
-
+        className: 'col-md-3 offset-md-3',
         key: 'category',
         type: 'select',
         templateOptions: {
@@ -57,7 +46,7 @@ export class HeadlinesComponent implements OnInit {
         }
       },
       {
-        className: 'col-4',
+        className: 'col-md-3',
         key: 'country',
         type: 'select',
         templateOptions: {
@@ -73,6 +62,16 @@ export class HeadlinesComponent implements OnInit {
             {label: 'Hungary', value: 'hu'},
             {label: 'Romania', value: 'ro'}
           ]
+        }
+      },
+      {
+        className: 'col-md-6 offset-md-3',
+        key: 'topic',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Topic',
+          placeholder: 'Enter topic',
         }
       }]
   }];

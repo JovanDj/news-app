@@ -1,14 +1,17 @@
-<div class="row">
-  <div class="col-12 col-md-3" *ngFor="let source of sources; index as i">
-    <ul class="list-group m-1 text-primary">
-      <li class="list-group-item">Name: {{source.name}} <span class="badge badge-primary pull-right">{{i+1}}</span>
-      </li>
-      <li class="list-group-item">Description: {{source.description}}</li>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-3" *ngFor="let source of sources; index as i">
+      <ul class="list-group m-1 text-primary">
+        <li class="list-group-item">Name: {{source.name}} <span class="badge badge-primary pull-right">{{i+1}}</span>
+        </li>
+        <li class="list-group-item">Description: {{source.description}}</li>
 
-      <li class="list-group-item">Category: {{source.category}}</li>
-      <li class="list-group-item">Url: <a [href]="source.url">{{source.url}}</a></li>
-    </ul>
+        <li class="list-group-item">Category: {{source.category}}</li>
+        <li class="list-group-item">Url: <a [href]="source.url">{{source.url}}</a></li>
+      </ul>
 
+    </div>
   </div>
-</div>
 
+
+</div>
