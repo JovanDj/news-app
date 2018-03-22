@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RequestsService} from '../services/requests.service';
+import {SourcesService} from '../services/sources.service';
 
 @Component({
   selector: 'app-sources',
@@ -9,8 +9,8 @@ import {RequestsService} from '../services/requests.service';
 export class SourcesComponent implements OnInit {
   sources: any;
 
-  constructor(private requests: RequestsService) {
-    this.requests.getSources().subscribe(sources => {
+  constructor(private sourcesService: SourcesService) {
+    this.sourcesService.getSources().subscribe(sources => {
       this.sources = sources['sources'];
       console.log(this.sources);
     });

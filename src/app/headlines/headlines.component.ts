@@ -72,9 +72,10 @@ export class HeadlinesComponent implements OnInit {
             {label: 'United Kingdom of Great Britain and Northern Ireland', value: 'gb'},
             {label: 'United States of America', value: 'us'},
             {label: 'Hungary', value: 'hu'},
-            {label: 'Romania', value: 'ro'}]
+            {label: 'Romania', value: 'ro'}
+          ]
         }
-      }
+      }]
   }];
 
   submit(model) {
@@ -98,5 +99,4 @@ export class HeadlinesComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

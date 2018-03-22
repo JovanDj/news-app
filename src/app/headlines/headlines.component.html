@@ -36,25 +36,25 @@
       <div class="row py-1">
         <div class="col-md-7">
           <a [href]="headline.url">
-            <img class="img-fluid rounded" [src]="headline.urlToImage" [title]="headline.title" alt="Article image">
+            <img class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
+                 [src]="headline.urlToImage"
+                 [title]="headline.title"
+                 alt="Article image">
           </a>
         </div>
         <div class="col-md-5">
           <h5>
-            {{i + 1 | number }}:
+            <span class="badge badge-light">{{i + 1 | number }}</span>
             <a [href]="headline.url">{{ headline.title }}</a>
           </h5>
-          <p><strong>Author: {{headline.author}}</strong></p>
-          <p><strong>{{headline.publishedAt | date:'mediumDate'}}</strong></p>
-          <p>{{ headline.description }}</p>
+          <p class="mb-2 p-0"><strong>Source: {{headline.source.name}}</strong></p>
+          <p class="mb-2 p-0"><strong>Author: {{headline.author}}</strong></p>
+          <p class="mb-2 p-0"><strong>{{headline.publishedAt | date:'mediumDate'}}</strong></p>
+          <p class="mb-2 p-0">{{ headline.description }}</p>
           <a class="btn btn-outline-primary btn-link" [href]="headline.url">Read the article</a>
         </div>
       </div>
       <hr>
     </div>
   </div>
-
-
 </section>
-
-<!-- /.container -->

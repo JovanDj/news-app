@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {environment, environment} from '../../environments/environment';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class RequestsService {
@@ -25,10 +25,6 @@ export class RequestsService {
     }
 
     return this.http.get(this.url, {params: params});
-  }
-
-  getSources() {
-    return this.http.get(environment.baseUrl + '/sources');
   }
 
 }
