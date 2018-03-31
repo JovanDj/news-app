@@ -20,6 +20,7 @@ export class SourcesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // Get the list of sources from the server
     this.sourcesSub = this.sourcesService.getSources().subscribe(sources => {
       this.sources = sources['sources'];
       console.log(this.sources);
@@ -27,7 +28,7 @@ export class SourcesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    // Unsubscribe when the component is destroyed
     this.sourcesSub.unsubscribe();
   }
-
 }

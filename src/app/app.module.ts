@@ -13,9 +13,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeadlinesComponent} from './headlines/headlines.component';
 import {AppRoutingModule} from './app-routing.module';
 import {EverythingComponent} from './everything/everything.component';
-import { SourcesComponent } from './sources/sources.component';
-import { HomeComponent } from './home/home.component';
+import {SourcesComponent} from './sources/sources.component';
+import {HomeComponent} from './home/home.component';
 import {ClickOutsideModule} from 'ng4-click-outside';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {ClickOutsideModule} from 'ng4-click-outside';
     FormlyBootstrapModule,
     FormlyModule.forRoot(),
     AppRoutingModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+
 
   ],
   bootstrap: [AppComponent]
