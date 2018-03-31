@@ -25,7 +25,21 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "news-api",
+      "patterns": [
+        "\\/top-headlines",
+        "\\/everything",
+        "\\/sources"
+      ],
+      "strategy": "freshness",
+      "maxSize": 20,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
   "hashTable": {
     "https://jovandj.github.io/news-app/inline.31e1fb380eb7cf3d75b1.bundle.js": "09dd3d40abfe3872e66fae24485a609b72dc3cf8",
     "https://jovandj.github.io/news-app/main.739b0a448d8a997ea4d1.bundle.js": "fd78cbe37901c1f3f284dc06bdd1226faee22a96",
