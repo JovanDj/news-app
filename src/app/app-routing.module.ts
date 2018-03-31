@@ -20,8 +20,13 @@ const routes: Routes = [
     path: 'headlines',
     component: HeadlinesComponent
   },
+
   {
     path: 'everything',
+    component: EverythingComponent
+  },
+  {
+    path: 'everything/:page',
     component: EverythingComponent
   },
   {

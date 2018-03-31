@@ -3,7 +3,7 @@
 
   <header>
 
-    <span *ngIf="everything != undefined">Number of articles: {{ everything.totalResults | number }}</span>
+    <span *ngIf="all != undefined">Number of articles: {{ all.totalResults | number }}</span>
 
     <form [formGroup]="form" (ngSubmit)="getEverything(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
@@ -34,8 +34,8 @@
 </div>
 
 
-<section *ngIf="everything != undefined">
-  <div class="articles" *ngFor="let everything of everything.articles; index as i">
+<section *ngIf="all != undefined">
+  <div class="articles" *ngFor="let everything of all.articles; index as i">
     <div class="container-fluid">
       <div class="row py-1">
         <div class="col-md-7">
@@ -62,3 +62,5 @@
     </div>
   </div>
 </section>
+
+

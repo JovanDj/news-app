@@ -12,7 +12,7 @@ export class HeadlinesService {
 
   }
 
-  getHeadlines(formData) {
+  getHeadlines(formData: any) {
     let params: HttpParams = new HttpParams();
     params = params.append('topic', formData.topic);
 

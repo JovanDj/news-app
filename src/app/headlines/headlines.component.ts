@@ -1,20 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {HeadlinesService} from '../services/headlines.service';
 import {FormlyFieldConfig} from '@ngx-formly/core';
+import {ISubscription} from 'rxjs/Subscription';
+
 
 @Component({
   selector: 'app-headlines',
   templateUrl: './headlines.component.html',
   styleUrls: ['./headlines.component.scss']
 })
-export class HeadlinesComponent implements OnInit {
+export class HeadlinesComponent implements OnInit, OnDestroy {
 
+  // Control spinner with this
   showSpinner: Boolean;
 
+  // Store subscriptions here
+  headlinesSub: ISubscription;
 
-  categories = ['business', 'entertainment', 'gaming', 'general', 'health-and-medical', 'music',
-    'politics', 'science-and-nature', 'sport', 'technology'];
+  // Put results of http request here
   headlines: any;
 
   constructor(private req: HeadlinesService) {
@@ -77,10 +81,10 @@ export class HeadlinesComponent implements OnInit {
       }]
   }];
 
-  getHeadlines(formData) {
+  getHeadlines(formData: any) {
     this.showSpinner = true;
     console.log(formData);
-    this.req.getHeadlines(formData).subscribe(
+    this.headlinesSub = this.req.getHeadlines(formData).subscribe(
       data => {
         console.log(data);
         this.headlines = data;
@@ -92,5 +96,10 @@ export class HeadlinesComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe from subscriptions when component is destroyed to prevent memory leaks
+    this.headlinesSub.unsubscribe();
   }
 }

@@ -10,10 +10,10 @@ export class EverythingService {
   constructor(private http: HttpClient) {
   }
 
-  getEverything(searchCriteria) {
+  getEverything(searchCriteria: any) {
     let params: HttpParams = new HttpParams();
-    params = params.append('page', searchCriteria.page);
-    params = params.append('pageSize', searchCriteria.pageSize);
+    // params = params.append('page', searchCriteria.page);
+    // params = params.append('pageSize', searchCriteria.pageSize);
     params = params.append('q', searchCriteria.q);
 
 
