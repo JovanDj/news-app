@@ -27,9 +27,10 @@ export class EverythingComponent implements OnInit {
 
   fields: FormlyFieldConfig[] = [{
     fieldGroupClassName: 'row',
+
     fieldGroup: [
       {
-        className: 'col-4',
+        className: 'col-md-3 offset-md-3',
         key: 'q',
         type: 'input',
         templateOptions: {
@@ -40,7 +41,7 @@ export class EverythingComponent implements OnInit {
         }
       },
       {
-        className: 'col-4',
+        className: 'col-md-3',
         key: 'language',
         type: 'select',
         templateOptions: {

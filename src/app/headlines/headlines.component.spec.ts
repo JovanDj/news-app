@@ -1,6 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HeadlinesComponent } from './headlines.component';
+import {HeadlinesComponent} from './headlines.component';
+import {HeadlinesService} from '../services/headlines.service';
+import {ReactiveFormsModule} from '@angular/forms';
+import {FormlyModule} from '@ngx-formly/core';
+import {FormlyBootstrapModule} from '@ngx-formly/bootstrap';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('HeadlinesComponent', () => {
   let component: HeadlinesComponent;
@@ -8,9 +13,11 @@ describe('HeadlinesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeadlinesComponent ]
+      imports: [ReactiveFormsModule, FormlyModule, FormlyBootstrapModule, HttpClientTestingModule],
+      declarations: [HeadlinesComponent],
+      providers: [HeadlinesService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

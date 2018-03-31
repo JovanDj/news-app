@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {RequestsService} from '../services/requests.service';
+import {HeadlinesService} from '../services/headlines.service';
 import {FormlyFieldConfig} from '@ngx-formly/core';
 
 @Component({
@@ -12,11 +12,12 @@ export class HeadlinesComponent implements OnInit {
 
   showSpinner: Boolean;
 
+
   categories = ['business', 'entertainment', 'gaming', 'general', 'health-and-medical', 'music',
     'politics', 'science-and-nature', 'sport', 'technology'];
   headlines: any;
 
-  constructor(private req: RequestsService) {
+  constructor(private req: HeadlinesService) {
   }
 
   form = new FormGroup({});
@@ -75,11 +76,6 @@ export class HeadlinesComponent implements OnInit {
         }
       }]
   }];
-
-  submit(model) {
-    console.log(model);
-  }
-
 
   getHeadlines(formData) {
     this.showSpinner = true;

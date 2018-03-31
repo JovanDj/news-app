@@ -1,5 +1,5 @@
 <!-- Page Content -->
-<section class="container-fluid">
+<section class="container-fluid my-5">
 
   <header>
 
@@ -7,7 +7,11 @@
 
     <form [formGroup]="form" (ngSubmit)="getEverything(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
-        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
       </formly-form>
     </form>
     <hr>

@@ -3,12 +3,17 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {HeadlinesComponent} from './headlines/headlines.component';
 import {EverythingComponent} from './everything/everything.component';
 import {SourcesComponent} from './sources/sources.component';
+import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'headlines'
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
 
   {
@@ -26,7 +31,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: 'headlines'
+    redirectTo: 'home'
   }
 ];
 

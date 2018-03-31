@@ -1,16 +1,15 @@
-import { TestBed, inject } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
+import {inject, TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import {HttpClient} from '@angular/common/http';
 
-import { RequestsService } from './requests.service';
+import {HeadlinesService} from './headlines.service';
 
 
 describe('RequestsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [RequestsService, HttpClient]
+      providers: [HeadlinesService]
     });
   });
 
@@ -18,7 +17,7 @@ describe('RequestsService', () => {
     httpMock.verify();
   }));
 
-  it('should be created', inject([RequestsService], (service: RequestsService) => {
+  it('should be created', inject([HeadlinesService], (service: HeadlinesService) => {
     expect(service).toBeTruthy();
   }));
 
@@ -41,6 +40,6 @@ describe('RequestsService', () => {
     expect(req.request.method).toEqual('GET');
 
     // Next, fulfill the request by transmitting a response.
-    req.flush({ name: 'Test Data' });
+    req.flush({name: 'Test Data'});
   }));
 });

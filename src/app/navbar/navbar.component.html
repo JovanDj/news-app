@@ -1,18 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" (clickOutside)="closeDropdown()">
   <a class="navbar-brand" routerLink="">{{title}}</a>
 
-  <span class="navbar-text m-auto">{{subtitle}}</span>
+  <span class="navbar-text">{{subtitle}}</span>
 
-  <button type="button" class=" navbar-toggler" (click)="isCollapsed = !isCollapsed"
-          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+  <button type="button" class=" navbar-toggler" (click)="openDropdown()"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="collapse">
     <span class="navbar-toggler-icon"></span>
 
   </button>
 
-
-
-  <div class="collapse navbar-collapse ml-auto"  id="collapseExample" [ngbCollapse]="isCollapsed">
+  <div class="collapse navbar-collapse ml-auto" id="collapse" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/headlines" routerLinkActive="active">Top headlines</a>
       </li>

@@ -14,6 +14,8 @@ import {HeadlinesComponent} from './headlines/headlines.component';
 import {AppRoutingModule} from './app-routing.module';
 import {EverythingComponent} from './everything/everything.component';
 import { SourcesComponent } from './sources/sources.component';
+import { HomeComponent } from './home/home.component';
+import {ClickOutsideModule} from 'ng4-click-outside';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SourcesComponent } from './sources/sources.component';
     NavbarComponent,
     HeadlinesComponent,
     EverythingComponent,
-    SourcesComponent
+    SourcesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { SourcesComponent } from './sources/sources.component';
     FormlyBootstrapModule,
     FormlyModule.forRoot(),
     AppRoutingModule,
+    ClickOutsideModule
 
   ],
   bootstrap: [AppComponent]

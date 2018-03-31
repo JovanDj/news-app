@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
 @Injectable()
-export class RequestsService {
+export class HeadlinesService {
 
   url: string = environment.baseUrl + '/top-headlines';
 
