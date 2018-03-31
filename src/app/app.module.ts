@@ -38,7 +38,7 @@ import {environment} from '../environments/environment';
     FormlyModule.forRoot(),
     AppRoutingModule,
     ClickOutsideModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('/news-app/ngsw-worker.js', {enabled: environment.production})
 
 
   ],

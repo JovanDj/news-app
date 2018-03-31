@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "hmr": "ng serve --hmr -e=hmr",
-    "deploy": "ng build --target production --build-optimizer --vendor-chunk --base-href 'https://github.com/JovanDj/news-app/' && angular-cli-ghpages"
+    "precache": "sw-precache --verbose --config=sw-precache-config.js",
+    "deploy": "ng build --target production --build-optimizer --vendor-chunk --base-href https://jovandj.github.io/news-app/  && angular-cli-ghpages"
   },
   "private": true,
   "dependencies": {
