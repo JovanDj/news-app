@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "hmr": "ng serve --hmr -e=hmr",
+    "analyzer": "webpack-bundle-analyzer dist/stats.json",
     "deploy": "ng build --prod --base-href https://jovandj.github.io/news-app/ && angular-cli-ghpages"
   },
   "private": true,
@@ -40,7 +41,7 @@
     "spinkit": "^1.2.5",
     "statuses": "^1.5.0",
     "tmp": "^0.0.33",
-    "zone.js": "^0.8.21"
+    "zone.js": "^0.8.23"
   },
   "devDependencies": {
     "@angular/cli": "^1.7.3",

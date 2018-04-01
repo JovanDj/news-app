@@ -29,6 +29,9 @@ export class SourcesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // Unsubscribe when the component is destroyed
-    this.sourcesSub.unsubscribe();
+    if (this.sourcesSub) {
+      this.sourcesSub.unsubscribe();
+
+    }
   }
 }

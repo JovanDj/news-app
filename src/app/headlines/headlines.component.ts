@@ -100,6 +100,9 @@ export class HeadlinesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // Unsubscribe from subscriptions when component is destroyed to prevent memory leaks
-    this.headlinesSub.unsubscribe();
+    if (this.headlinesSub) {
+      this.headlinesSub.unsubscribe();
+
+    }
   }
 }

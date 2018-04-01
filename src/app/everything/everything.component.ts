@@ -88,7 +88,11 @@ export class EverythingComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.everythingSub.unsubscribe();
+    if (this.everythingSub) {
+      this.everythingSub.unsubscribe();
+
+    }
   }
+
 
 }
