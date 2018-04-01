@@ -1,0 +1,10 @@
+{
+  "name": "News app",
+  "short_name": "news",
+  "description": "Fetch news from various sources and topics",
+  "lang": "en-US",
+  "start_url": "https://jovandj.github.io/news-app/",
+  "scope": "https://jovandj.github.io/news-app/",
+  "display": "standalone",
+  "background_color": "#000"
+}

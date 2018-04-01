@@ -10,7 +10,7 @@
         "https://jovandj.github.io/news-app/favicon.ico",
         "https://jovandj.github.io/news-app/index.html",
         "https://jovandj.github.io/news-app/inline.31e1fb380eb7cf3d75b1.bundle.js",
-        "https://jovandj.github.io/news-app/main.bd56db9f606f3614a09d.bundle.js",
+        "https://jovandj.github.io/news-app/main.1bbf285fcfad502d0b52.bundle.js",
         "https://jovandj.github.io/news-app/polyfills.ce9ee3e2e4ebfe170d0d.bundle.js",
         "https://jovandj.github.io/news-app/styles.1b36b379a5e566fefa13.bundle.css",
         "https://jovandj.github.io/news-app/vendor.3f114dfcce89d81de5c2.bundle.js"
@@ -21,7 +21,9 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
-      "urls": [],
+      "urls": [
+        "https://jovandj.github.io/news-app/assets/manifest.json"
+      ],
       "patterns": []
     }
   ],
@@ -42,11 +44,12 @@
   ],
   "hashTable": {
     "https://jovandj.github.io/news-app/inline.31e1fb380eb7cf3d75b1.bundle.js": "09dd3d40abfe3872e66fae24485a609b72dc3cf8",
-    "https://jovandj.github.io/news-app/main.bd56db9f606f3614a09d.bundle.js": "717f4a24cba4987f222f6ce6bec4240e85ae52ea",
+    "https://jovandj.github.io/news-app/assets/manifest.json": "9843d94f694254d71e8e0c53494c9bbe4e8fbb5e",
+    "https://jovandj.github.io/news-app/main.1bbf285fcfad502d0b52.bundle.js": "13ff8733ff8dc72fa5a9db8003b82982251a78f6",
     "https://jovandj.github.io/news-app/polyfills.ce9ee3e2e4ebfe170d0d.bundle.js": "deb3bb32039edd76a8f1c0a02d1e98148d8f03f7",
     "https://jovandj.github.io/news-app/styles.1b36b379a5e566fefa13.bundle.css": "cf2b975a2aa22a732ecb1e10d1f5a613a5d8948c",
     "https://jovandj.github.io/news-app/vendor.3f114dfcce89d81de5c2.bundle.js": "383d6353a250e6f783ac50a156cff7fa08612579",
     "https://jovandj.github.io/news-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://jovandj.github.io/news-app/index.html": "f37cb72460f35d6d9847303faf1e8bee7a43ebc6"
+    "https://jovandj.github.io/news-app/index.html": "dc7de2fc9e6e39a4e3abe667e17fb6028fbe167b"
   }
 }
