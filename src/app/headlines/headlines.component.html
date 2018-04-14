@@ -3,7 +3,7 @@
 
   <header>
 
-    <span *ngIf="headlines !== undefined">Number of articles: {{ headlines.articles.length | number }}</span>
+    <span *ngIf="headlines !== undefined">Number of articles: {{ headlines['articles'].length | number }}</span>
 
     <form [formGroup]="form" (ngSubmit)="getHeadlines(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
