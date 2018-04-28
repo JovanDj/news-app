@@ -2,7 +2,7 @@
   "index": "/index.html",
   "assetGroups": [{
     "name": "app",
-    "installMode": "prefetch",
+    "installMode": "lazy",
     "resources": {
       "files": [
         "/favicon.ico",
@@ -17,7 +17,7 @@
   }, {
     "name": "assets",
     "installMode": "lazy",
-    "updateMode": "prefetch",
+    "updateMode": "lazy",
     "resources": {
       "files": [
         "/assets/**"
@@ -29,9 +29,9 @@
       "name": "news-api",
       "urls": ["/top-headlines", "/everything", "/sources"],
       "cacheConfig": {
-        "strategy": "freshness",
-        "maxSize": 20,
-        "maxAge": "1h",
+        "strategy": "performance",
+        "maxSize": 30,
+        "maxAge": "1d",
         "timeout": "5s"
       }
     }

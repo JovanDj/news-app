@@ -94,7 +94,6 @@ export class HeadlinesComponent implements OnInit, OnDestroy {
         console.log(error);
       });
   }
-
   ngOnInit() {
   }
 
