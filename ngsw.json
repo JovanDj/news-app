@@ -14,7 +14,7 @@
         "https://jovandj.github.io/news-app/2.afbaa1bf2276ee118348.chunk.js",
         "https://jovandj.github.io/news-app/3.3e190c30e0425d2d4ba3.chunk.js",
         "https://jovandj.github.io/news-app/inline.a4bc56b621ada65acb80.bundle.js",
-        "https://jovandj.github.io/news-app/main.cd9377021913ed25a052.bundle.js",
+        "https://jovandj.github.io/news-app/main.62ff203a203f5030f51a.bundle.js",
         "https://jovandj.github.io/news-app/polyfills.7e5cc4bd60985b1ed6f6.bundle.js",
         "https://jovandj.github.io/news-app/styles.a6dd58baf2007d7de798.bundle.css",
         "https://jovandj.github.io/news-app/vendor.131502ad0fc8b02b7bbf.bundle.js"
@@ -65,7 +65,7 @@
     "https://jovandj.github.io/news-app/assets/images/icons/icon-152x152.png": "d9557bd8ef45f2d46755da754a2136284bb1510a",
     "https://jovandj.github.io/news-app/inline.a4bc56b621ada65acb80.bundle.js": "ea26d476884aa50062426e2a4145ebe39f25dd07",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-192x192.png": "bf5614dd1c353e8790cf323af1e76d6eb976f5e4",
-    "https://jovandj.github.io/news-app/main.cd9377021913ed25a052.bundle.js": "02befcb9a2d9ff9f3a4f2af738e36b4af15a34ef",
+    "https://jovandj.github.io/news-app/main.62ff203a203f5030f51a.bundle.js": "91bcac6a61a270c4d898d4fba9f23850fff912e9",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-384x384.png": "913332e10d1edf50f6b32aae7fc7a04e5e6bfd6e",
     "https://jovandj.github.io/news-app/polyfills.7e5cc4bd60985b1ed6f6.bundle.js": "c0dd30e80491c665ffcd34e9d45b54837793dc2c",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-512x512.png": "9a11e1fbf62d6572a489b208f52dedbd39a55b52",
@@ -74,6 +74,6 @@
     "https://jovandj.github.io/news-app/vendor.131502ad0fc8b02b7bbf.bundle.js": "28d6919bc946c08fa1394f8f6b791a6c29437056",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-96x96.png": "4714ca63de85d8bee5c21356bc0613e51ba3579f",
     "https://jovandj.github.io/news-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://jovandj.github.io/news-app/index.html": "1846fb935d59dd1fcaf92790a90c1713a1f57aeb"
+    "https://jovandj.github.io/news-app/index.html": "e40232bd8130a716e58eee83f63eb3849394ed6f"
   }
 }
