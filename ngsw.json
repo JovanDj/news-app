@@ -4,22 +4,27 @@
   "assetGroups": [
     {
       "name": "app",
-      "installMode": "prefetch",
-      "updateMode": "prefetch",
+      "installMode": "lazy",
+      "updateMode": "lazy",
       "urls": [
         "https://jovandj.github.io/news-app/favicon.ico",
         "https://jovandj.github.io/news-app/index.html",
-        "https://jovandj.github.io/news-app/inline.318b50c57b4eba3d437b.bundle.js",
-        "https://jovandj.github.io/news-app/main.a252a397751d815f7e34.bundle.js",
-        "https://jovandj.github.io/news-app/polyfills.abccc6122f762fb447ee.bundle.js",
-        "https://jovandj.github.io/news-app/styles.34207aa7c7425776625f.bundle.css"
+        "https://jovandj.github.io/news-app/0.867ffd7c2625eeda7247.chunk.js",
+        "https://jovandj.github.io/news-app/1.8db757f14b005b1418a2.chunk.js",
+        "https://jovandj.github.io/news-app/2.afbaa1bf2276ee118348.chunk.js",
+        "https://jovandj.github.io/news-app/3.3e190c30e0425d2d4ba3.chunk.js",
+        "https://jovandj.github.io/news-app/inline.a4bc56b621ada65acb80.bundle.js",
+        "https://jovandj.github.io/news-app/main.cd9377021913ed25a052.bundle.js",
+        "https://jovandj.github.io/news-app/polyfills.7e5cc4bd60985b1ed6f6.bundle.js",
+        "https://jovandj.github.io/news-app/styles.a6dd58baf2007d7de798.bundle.css",
+        "https://jovandj.github.io/news-app/vendor.131502ad0fc8b02b7bbf.bundle.js"
       ],
       "patterns": []
     },
     {
       "name": "assets",
       "installMode": "lazy",
-      "updateMode": "prefetch",
+      "updateMode": "lazy",
       "urls": [
         "https://jovandj.github.io/news-app/assets/manifest.json",
         "https://jovandj.github.io/news-app/assets/images/icons/icon-128x128.png",
@@ -42,28 +47,33 @@
         "\\/everything",
         "\\/sources"
       ],
-      "strategy": "freshness",
-      "maxSize": 20,
-      "maxAge": 3600000,
+      "strategy": "performance",
+      "maxSize": 30,
+      "maxAge": 86400000,
       "timeoutMs": 5000,
       "version": 1
     }
   ],
   "hashTable": {
-    "https://jovandj.github.io/news-app/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
+    "https://jovandj.github.io/news-app/0.867ffd7c2625eeda7247.chunk.js": "a398d6482f8709e467065385662dd26ab7a055a4",
     "https://jovandj.github.io/news-app/assets/manifest.json": "aefa51bd5ee2be1e0b5e3f650db00dac2ea9baab",
-    "https://jovandj.github.io/news-app/main.a252a397751d815f7e34.bundle.js": "57f27a769fad91fc826684573f607ba250ddf98d",
+    "https://jovandj.github.io/news-app/1.8db757f14b005b1418a2.chunk.js": "ead136cf03d7c2886aa2301fd4c00c40fd05b66a",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-128x128.png": "251f9e2a7d7299b797323261a2e063d1e501e3c0",
-    "https://jovandj.github.io/news-app/polyfills.abccc6122f762fb447ee.bundle.js": "beb3f7129447fb464639e25447ceb200fa2ba87e",
+    "https://jovandj.github.io/news-app/2.afbaa1bf2276ee118348.chunk.js": "46e3bf7d67e66c81be886dff4a84c593f2f2dd5e",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-144x144.png": "6a4716da1d578bf7ca65c6433942cbcb63320a77",
-    "https://jovandj.github.io/news-app/styles.34207aa7c7425776625f.bundle.css": "bafec2e9165d27bbdfbe6efac7db52350a018494",
+    "https://jovandj.github.io/news-app/3.3e190c30e0425d2d4ba3.chunk.js": "d1fbecd3282333463aea68c298930e40734771cd",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-152x152.png": "d9557bd8ef45f2d46755da754a2136284bb1510a",
-    "https://jovandj.github.io/news-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://jovandj.github.io/news-app/inline.a4bc56b621ada65acb80.bundle.js": "ea26d476884aa50062426e2a4145ebe39f25dd07",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-192x192.png": "bf5614dd1c353e8790cf323af1e76d6eb976f5e4",
-    "https://jovandj.github.io/news-app/index.html": "e40e6b5fced1675d908858549fbf481ffc795f5d",
+    "https://jovandj.github.io/news-app/main.cd9377021913ed25a052.bundle.js": "02befcb9a2d9ff9f3a4f2af738e36b4af15a34ef",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-384x384.png": "913332e10d1edf50f6b32aae7fc7a04e5e6bfd6e",
+    "https://jovandj.github.io/news-app/polyfills.7e5cc4bd60985b1ed6f6.bundle.js": "c0dd30e80491c665ffcd34e9d45b54837793dc2c",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-512x512.png": "9a11e1fbf62d6572a489b208f52dedbd39a55b52",
+    "https://jovandj.github.io/news-app/styles.a6dd58baf2007d7de798.bundle.css": "10594498da5d230671d632a8e4e46ab8722587c8",
     "https://jovandj.github.io/news-app/assets/images/icons/icon-72x72.png": "2f1a4f2d35a18c56d9b6e2717cf01d0ec10115ba",
-    "https://jovandj.github.io/news-app/assets/images/icons/icon-96x96.png": "4714ca63de85d8bee5c21356bc0613e51ba3579f"
+    "https://jovandj.github.io/news-app/vendor.131502ad0fc8b02b7bbf.bundle.js": "28d6919bc946c08fa1394f8f6b791a6c29437056",
+    "https://jovandj.github.io/news-app/assets/images/icons/icon-96x96.png": "4714ca63de85d8bee5c21356bc0613e51ba3579f",
+    "https://jovandj.github.io/news-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://jovandj.github.io/news-app/index.html": "1846fb935d59dd1fcaf92790a90c1713a1f57aeb"
   }
 }
