@@ -4,8 +4,8 @@
   "assetGroups": [
     {
       "name": "app",
-      "installMode": "lazy",
-      "updateMode": "lazy",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
       "urls": [
         "https://jovandj.github.io/news-app/favicon.ico",
         "https://jovandj.github.io/news-app/index.html",
@@ -23,8 +23,8 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "lazy",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
       "urls": [
         "https://jovandj.github.io/news-app/assets/manifest.json",
         "https://jovandj.github.io/news-app/assets/images/icons/icon-128x128.png",
