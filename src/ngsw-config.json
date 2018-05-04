@@ -1,33 +1,38 @@
 {
   "index": "/index.html",
-  "assetGroups": [{
-    "name": "app",
-    "installMode": "prefetch",
-    "resources": {
-      "files": [
-        "/favicon.ico",
-        "/index.html"
-      ],
-      "versionedFiles": [
-        "/*.bundle.css",
-        "/*.bundle.js",
-        "/*.chunk.js"
-      ]
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html"
+        ],
+        "versionedFiles": [
+          "/*.bundle.css",
+          "/*.bundle.js",
+          "/*.chunk.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**"
+        ]
+      }
     }
-  }, {
-    "name": "assets",
-    "installMode": "prefetch",
-    "updateMode": "prefetch",
-    "resources": {
-      "files": [
-        "/assets/**"
-      ]
-    }
-  }],
+  ],
   "dataGroups": [
     {
       "name": "Sources",
-      "urls": ["/sources"],
+      "urls": [
+        "/sources"
+      ],
       "cacheConfig": {
         "strategy": "performance",
         "maxSize": 30,
@@ -37,7 +42,9 @@
     },
     {
       "name": "Top headlines",
-      "urls": ["/top-headlines"],
+      "urls": [
+        "/top-headlines"
+      ],
       "cacheConfig": {
         "strategy": "performance",
         "maxSize": 60,
@@ -47,7 +54,9 @@
     },
     {
       "name": "Everything",
-      "urls": [ "/everything"],
+      "urls": [
+        "/everything"
+      ],
       "cacheConfig": {
         "strategy": "performance",
         "maxSize": 30,
