@@ -26,12 +26,32 @@
   }],
   "dataGroups": [
     {
-      "name": "news-api",
-      "urls": ["/top-headlines", "/everything", "/sources"],
+      "name": "Sources",
+      "urls": ["/sources"],
       "cacheConfig": {
         "strategy": "performance",
         "maxSize": 30,
+        "maxAge": "7d",
+        "timeout": "5s"
+      }
+    },
+    {
+      "name": "Top headlines",
+      "urls": ["/top-headlines"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 60,
         "maxAge": "1d",
+        "timeout": "5s"
+      }
+    },
+    {
+      "name": "Everything",
+      "urls": [ "/everything"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 30,
+        "maxAge": "1h",
         "timeout": "5s"
       }
     }
