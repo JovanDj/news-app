@@ -121,6 +121,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
+            "fix": true,
+            "format": "stylish",
             "tsConfig": [
               "e2e/tsconfig.e2e.json"
             ],

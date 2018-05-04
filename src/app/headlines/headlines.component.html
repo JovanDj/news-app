@@ -47,12 +47,12 @@
         </div>
         <div class="col-md-5">
           <h5 class="text-center">
-            <span class="badge badge-light pull-left">{{i + 1 | number }}</span>
+            <span class="badge badge-light pull-left">{{ i + 1 | number }}</span>
             <a [href]="headline.url">{{ headline.title }}</a>
           </h5>
-          <p class="mb-2 p-0"><strong>Source: {{headline.source.name}}</strong></p>
-          <p class="mb-2 p-0"><strong>Author: {{headline.author}}</strong></p>
-          <p class="mb-2 p-0"><strong>{{headline.publishedAt | date:'mediumDate'}}</strong></p>
+          <p class="mb-2 p-0"><strong>Source: {{ headline.source.name }}</strong></p>
+          <p class="mb-2 p-0"><strong>Author: {{ headline.author }}</strong></p>
+          <p class="mb-2 p-0"><strong>{{ headline.publishedAt | date:'mediumDate' }}</strong></p>
           <p class="mb-2 p-0">{{ headline.description }}</p>
           <a class="btn btn-outline-primary btn-link" [href]="headline.url">Read the article</a>
         </div>
