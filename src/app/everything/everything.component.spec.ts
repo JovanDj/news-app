@@ -2,10 +2,11 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {EverythingComponent} from './everything.component';
 import {EverythingService} from '../services/everything.service';
-import {FormlyModule} from '@ngx-formly/core';
 import {FormlyBootstrapModule} from '@ngx-formly/bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {FormlyModule} from '@ngx-formly/core';
 
 describe('EverythingComponent', () => {
   let component: EverythingComponent;
@@ -13,7 +14,13 @@ describe('EverythingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormlyModule, FormlyBootstrapModule, ReactiveFormsModule, HttpClientTestingModule],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormlyModule,
+        FormlyBootstrapModule
+      ],
       declarations: [EverythingComponent],
       providers: [EverythingService]
     })
@@ -30,3 +37,4 @@ describe('EverythingComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

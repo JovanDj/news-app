@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import {HomeComponent} from './home.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,18 +9,28 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [RouterTestingModule],
+      declarations: [HomeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
+
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
+  });
+});
+
+describe('Home component isolated', () => {
+
+  it('should create', () => {
+    const home: HomeComponent = new HomeComponent();
+    expect(home).toBeDefined();
   });
 });

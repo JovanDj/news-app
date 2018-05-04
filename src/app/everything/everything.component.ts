@@ -2,8 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {EverythingService} from '../services/everything.service';
 import {FormGroup} from '@angular/forms';
 import {FormlyFieldConfig} from '@ngx-formly/core';
-import {Router} from '@angular/router';
-import {ISubscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-everything',
@@ -11,15 +10,15 @@ import {ISubscription} from 'rxjs/Subscription';
   styleUrls: ['./everything.component.scss']
 })
 export class EverythingComponent implements OnInit, OnDestroy {
-  showSpinner: Boolean;
+  showSpinner: Boolean = false;
 
   // Store subscriptions here
-  everythingSub: ISubscription;
+  everythingSub: Subscription = new Subscription();
 
   all: any;
   pageSize = '10';
 
-  constructor(private everythingService: EverythingService, private router: Router) {
+  constructor(private everythingService: EverythingService) {
   }
 
   form = new FormGroup({});
@@ -76,7 +75,6 @@ export class EverythingComponent implements OnInit, OnDestroy {
   getEverything(searchCriteria: any) {
     this.everythingSub = this.everythingService.getEverything(searchCriteria).subscribe(
       everything => {
-        console.log(everything);
         this.all = everything;
       }
     );

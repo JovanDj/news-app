@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {HeadlinesService} from '../services/headlines.service';
 import {FormlyFieldConfig} from '@ngx-formly/core';
-import {ISubscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -13,10 +13,10 @@ import {ISubscription} from 'rxjs/Subscription';
 export class HeadlinesComponent implements OnInit, OnDestroy {
 
   // Control spinner with this
-  showSpinner: Boolean;
+  showSpinner: Boolean = false;
 
   // Store subscriptions here
-  headlinesSub: ISubscription;
+  headlinesSub: Subscription = new Subscription();
 
   // Put results of http request here
   headlines: any;
@@ -83,17 +83,14 @@ export class HeadlinesComponent implements OnInit, OnDestroy {
 
   getHeadlines(formData: any) {
     this.showSpinner = true;
-    console.log(formData);
+
     this.headlinesSub = this.req.getHeadlines(formData).subscribe(
       data => {
-        console.log(data);
         this.headlines = data;
         this.showSpinner = false;
-      },
-      error => {
-        console.log(error);
       });
   }
+
   ngOnInit() {
   }
 

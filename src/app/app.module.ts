@@ -1,16 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {NavbarComponent} from './navbar/navbar.component';
 import {AppRoutingModule} from './app-routing.module';
-import {EverythingComponent} from './everything/everything.component';
 import {HomeComponent} from './home/home.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [

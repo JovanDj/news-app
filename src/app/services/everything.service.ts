@@ -12,8 +12,6 @@ export class EverythingService {
 
   getEverything(searchCriteria: any) {
     let params: HttpParams = new HttpParams();
-    // params = params.append('page', searchCriteria.page);
-    // params = params.append('pageSize', searchCriteria.pageSize);
     params = params.append('q', searchCriteria.q);
 
 

@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SourcesService} from '../services/sources.service';
-import {ISubscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-sources',
@@ -10,20 +10,16 @@ import {ISubscription} from 'rxjs/Subscription';
 export class SourcesComponent implements OnInit, OnDestroy {
 
   // Store subscriptions here
-  sourcesSub: ISubscription;
-
-
+  sourcesSub: Subscription = new Subscription();
   sources: any;
 
   constructor(private sourcesService: SourcesService) {
-
   }
 
   ngOnInit() {
     // Get the list of sources from the server
     this.sourcesSub = this.sourcesService.getSources().subscribe(sources => {
       this.sources = sources['sources'];
-      console.log(this.sources);
     });
   }
 
@@ -31,7 +27,6 @@ export class SourcesComponent implements OnInit, OnDestroy {
     // Unsubscribe when the component is destroyed
     if (this.sourcesSub) {
       this.sourcesSub.unsubscribe();
-
     }
   }
 }
