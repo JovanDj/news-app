@@ -22,7 +22,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CoreModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/news-app/ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [AppComponent]
 })
