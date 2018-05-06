@@ -3,20 +3,24 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import {HeadlinesService} from './headlines.service';
 
 
-describe('Headlines Service', () => {
+fdescribe('Headlines Service', () => {
+  let service: HeadlinesService;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [HeadlinesService]
     });
+
+    service = TestBed.get(HeadlinesService);
   });
 
   afterEach(inject([HttpTestingController], (httpMock: HttpTestingController) => {
     httpMock.verify();
   }));
 
-  it('should be created', inject([HeadlinesService], (service: HeadlinesService) => {
+  it('should be created', () => {
     expect(service).toBeTruthy();
-  }));
+  });
 
 });

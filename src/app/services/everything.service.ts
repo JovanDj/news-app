@@ -20,7 +20,5 @@ export class EverythingService {
     }
 
     return this.http.get(this.url, {params: params});
-
   }
-
 }

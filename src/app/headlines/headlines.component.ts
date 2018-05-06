@@ -3,6 +3,7 @@ import {FormGroup} from '@angular/forms';
 import {HeadlinesService} from '../services/headlines.service';
 import {FormlyFieldConfig} from '@ngx-formly/core';
 import {Subscription} from 'rxjs';
+import {Headline} from '../models/headline.model';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class HeadlinesComponent implements OnInit, OnDestroy {
   headlinesSub: Subscription = new Subscription();
 
   // Put results of http request here
-  headlines: any;
+  headline: Headline = {} as Headline;
 
   constructor(private req: HeadlinesService) {
   }
@@ -86,8 +87,9 @@ export class HeadlinesComponent implements OnInit, OnDestroy {
 
     this.headlinesSub = this.req.getHeadlines(formData).subscribe(
       data => {
-        this.headlines = data;
+        this.headline = data;
         this.showSpinner = false;
+        console.log(data);
       });
   }
 

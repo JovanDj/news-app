@@ -84,6 +84,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "codeCoverage": true,
+            "watch": true,
+            "sourceMap": true,
+            "progress": true,
             "scripts": [],
             "styles": [
               "src/styles.scss"

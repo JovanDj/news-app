@@ -3,7 +3,7 @@
 
   <header>
 
-    <span *ngIf="headlines !== undefined">Number of articles: {{ headlines['articles'].length | number }}</span>
+    <span>Number of articles: {{ headline['totalResults'] | number }}</span>
 
     <form [formGroup]="form" (ngSubmit)="getHeadlines(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
@@ -33,28 +33,28 @@
   <div class="sk-circle12 sk-child"></div>
 </div>
 
-<section *ngIf="headlines != undefined">
-  <article class="articles mb-1" *ngFor="let headline of headlines.articles; index as i">
+<section *ngIf="headline != undefined">
+  <article class="articles mb-1" *ngFor="let article of headline.articles; index as i">
     <div class="container-fluid">
       <div class="row py-1">
         <div class="col-md-7 pb-1">
-          <a [href]="headline.url">
+          <a [href]="article.url">
             <img on class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
-                 [src]="headline.urlToImage"
-                 [title]="headline.title"
-                 [alt]="headline.title">
+                 [src]="article.urlToImage"
+                 [title]="article.title"
+                 [alt]="article.title">
           </a>
         </div>
         <div class="col-md-5">
           <h5 class="text-center">
             <span class="badge badge-light pull-left">{{ i + 1 | number }}</span>
-            <a [href]="headline.url">{{ headline.title }}</a>
+            <a [href]="article.url">{{ article.title }}</a>
           </h5>
-          <p class="mb-2 p-0"><strong>Source: {{ headline.source.name }}</strong></p>
-          <p class="mb-2 p-0"><strong>Author: {{ headline.author }}</strong></p>
-          <p class="mb-2 p-0"><strong>{{ headline.publishedAt | date:'mediumDate' }}</strong></p>
-          <p class="mb-2 p-0">{{ headline.description }}</p>
-          <a class="btn btn-outline-primary btn-link" [href]="headline.url">Read the article</a>
+          <p class="mb-2 p-0"><strong>Source: {{ article['source'].name }}</strong></p>
+          <p class="mb-2 p-0"><strong>Author: {{ article.author }}</strong></p>
+          <p class="mb-2 p-0"><strong>{{ article.publishedAt | date:'mediumDate' }}</strong></p>
+          <p class="mb-2 p-0">{{ article.description }}</p>
+          <a class="btn btn-outline-primary btn-link" [href]="article.url">Read the article</a>
         </div>
       </div>
       <hr>
