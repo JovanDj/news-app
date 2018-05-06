@@ -13,7 +13,6 @@ export class MyHttpInterceptor implements HttpInterceptor {
     // Clone the request to add the new header.
     const authReq = req.clone({
       headers: req.headers.set('X-Api-Key', environment.token),
-      reportProgress: true,
       responseType: 'json',
     });
 

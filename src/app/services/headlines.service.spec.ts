@@ -25,7 +25,11 @@ describe('Headlines Service', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should retrieve data from API via GET method', () => {
+  it('should have a url', () => {
+    expect(service.URL).toBeDefined();
+  });
+
+  it('should retrieve data from API', () => {
     const dummyHeadline: Headline = {
       status: 'Dummy status',
       totalResults: 2,
@@ -69,7 +73,14 @@ describe('Headlines Service', () => {
     );
 
     const request = httpMock.expectOne(
-      req => req.method === 'GET' && req.url === `${service.URL}`);
+      req =>
+        req.method === 'GET' &&
+        req.url === `${service.URL}` &&
+        req.params.has('category') === true &&
+        req.params.has('topic') === true &&
+        req.params.has('country') === true &&
+        req.responseType === 'json'
+    );
 
     request.flush(dummyHeadline);
   });
