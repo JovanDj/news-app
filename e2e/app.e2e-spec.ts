@@ -12,6 +12,6 @@ describe('news-app App', () => {
     page.tryButton.click();
     page.submitButton.click();
 
-    expect(page.articles.all.length).toBeLessThan(1);
+    expect(page.articles.all.length).toBeGreaterThanOrEqual(1);
   });
 });
