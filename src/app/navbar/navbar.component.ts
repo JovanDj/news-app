@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +10,7 @@ export class NavbarComponent implements OnInit {
   title = 'News App';
   subtitle = 'Search for news from various sources';
 
-
-  constructor() {
-  }
+  constructor() {}
 
   openDropdown() {
     this.isCollapsed = false;
@@ -22,7 +20,5 @@ export class NavbarComponent implements OnInit {
     this.isCollapsed = true;
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

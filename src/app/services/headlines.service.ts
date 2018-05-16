@@ -1,15 +1,13 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import {Headline} from '../models/headline.model';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Headline } from '../models/headline.model';
 
 @Injectable()
 export class HeadlinesService {
-
   URL: string = environment.baseUrl + '/top-headlines';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getHeadlines(formData: any) {
     let params: HttpParams = new HttpParams();
@@ -23,6 +21,6 @@ export class HeadlinesService {
       params = params.append('country', country);
     }
 
-    return this.http.get<Headline>(this.URL, {params: params});
+    return this.http.get<Headline>(this.URL, { params: params });
   }
 }

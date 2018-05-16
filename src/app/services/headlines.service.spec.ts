@@ -1,7 +1,10 @@
-import {TestBed} from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {HeadlinesService} from './headlines.service';
-import {Headline} from '../models/headline.model';
+import { TestBed } from '@angular/core/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
+import { HeadlinesService } from './headlines.service';
+import { Headline } from '../models/headline.model';
 
 describe('Headlines Service', () => {
   let service: HeadlinesService;
@@ -44,7 +47,7 @@ describe('Headlines Service', () => {
           },
           title: 'Dummy title 1',
           url: 'Dummy url 1',
-          urlToImage: 'Dummy urlToImage 1',
+          urlToImage: 'Dummy urlToImage 1'
         },
         {
           author: 'Dummy author 1',
@@ -56,8 +59,9 @@ describe('Headlines Service', () => {
           },
           title: 'Dummy title 1',
           url: 'Dummy url 1',
-          urlToImage: 'Dummy urlToImage 1',
-        }]
+          urlToImage: 'Dummy urlToImage 1'
+        }
+      ]
     };
     const formData: any = {
       topic: '',
@@ -65,12 +69,10 @@ describe('Headlines Service', () => {
       country: 'Germany'
     };
 
-    service.getHeadlines(formData).subscribe(
-      headline => {
-        expect(headline['articles'].length).toBe(2);
-        expect(headline).toEqual(dummyHeadline);
-      }
-    );
+    service.getHeadlines(formData).subscribe(headline => {
+      expect(headline['articles'].length).toBe(2);
+      expect(headline).toEqual(dummyHeadline);
+    });
 
     const request = httpMock.expectOne(
       req =>

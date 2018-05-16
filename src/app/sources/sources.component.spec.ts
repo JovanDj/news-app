@@ -1,8 +1,8 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {SourcesComponent} from './sources.component';
-import {SourcesService} from '../services/sources.service';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { SourcesComponent } from './sources.component';
+import { SourcesService } from '../services/sources.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SourcesComponent', () => {
   let component: SourcesComponent;
@@ -13,8 +13,7 @@ describe('SourcesComponent', () => {
       imports: [HttpClientTestingModule],
       declarations: [SourcesComponent],
       providers: [SourcesService]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

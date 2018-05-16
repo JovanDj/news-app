@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {EverythingService} from '../services/everything.service';
-import {FormGroup} from '@angular/forms';
-import {FormlyFieldConfig} from '@ngx-formly/core';
-import {Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { EverythingService } from '../services/everything.service';
+import { FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-everything',
@@ -18,8 +18,7 @@ export class EverythingComponent implements OnInit, OnDestroy {
   all: any;
   pageSize = '10';
 
-  constructor(private everythingService: EverythingService) {
-  }
+  constructor(private everythingService: EverythingService) {}
 
   form = new FormGroup({});
   model = {
@@ -30,67 +29,64 @@ export class EverythingComponent implements OnInit, OnDestroy {
     pageSize: '10'
   };
 
-  fields: FormlyFieldConfig[] = [{
-    fieldGroupClassName: 'row',
+  fields: FormlyFieldConfig[] = [
+    {
+      fieldGroupClassName: 'row',
 
-    fieldGroup: [
-      {
-        className: 'col-md-3 offset-md-3',
-        key: 'q',
-        type: 'input',
-        templateOptions: {
-          type: 'text',
-          label: 'Topic',
-          placeholder: 'Enter topic',
-          required: true
+      fieldGroup: [
+        {
+          className: 'col-md-3 offset-md-3',
+          key: 'q',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'Topic',
+            placeholder: 'Enter topic',
+            required: true
+          }
+        },
+        {
+          className: 'col-md-3',
+          key: 'language',
+          type: 'select',
+          templateOptions: {
+            label: 'Language',
+            multiple: true,
+            options: [
+              { label: 'Arabic', value: 'ar' },
+              { label: 'German', value: 'de' },
+              { label: 'English', value: 'en' },
+              { label: 'Spanish', value: 'es' },
+              { label: 'French', value: 'fr' },
+              { label: 'Hebrew', value: 'he' },
+              { label: 'Italian', value: 'it' },
+              { label: 'Dutch', value: 'nl' },
+              { label: 'Norwegian', value: 'no' },
+              { label: 'Portuguese', value: 'pt' },
+              { label: 'Russian', value: 'ru' },
+              { label: 'Swedish', value: 'se' },
+              { label: '???', value: 'ud' },
+              { label: 'Chinese', value: 'zh' }
+            ]
+          }
         }
-      },
-      {
-        className: 'col-md-3',
-        key: 'language',
-        type: 'select',
-        templateOptions: {
-          label: 'Language',
-          multiple: true,
-          options: [
-            {label: 'Arabic', value: 'ar'},
-            {label: 'German', value: 'de'},
-            {label: 'English', value: 'en'},
-            {label: 'Spanish', value: 'es'},
-            {label: 'French', value: 'fr'},
-            {label: 'Hebrew', value: 'he'},
-            {label: 'Italian', value: 'it'},
-            {label: 'Dutch', value: 'nl'},
-            {label: 'Norwegian', value: 'no'},
-            {label: 'Portuguese', value: 'pt'},
-            {label: 'Russian', value: 'ru'},
-            {label: 'Swedish', value: 'se'},
-            {label: '???', value: 'ud'},
-            {label: 'Chinese', value: 'zh'}
-          ]
-        }
-      }]
-  }];
+      ]
+    }
+  ];
 
   getEverything(searchCriteria: any) {
-    this.everythingSub = this.everythingService.getEverything(searchCriteria).subscribe(
-      everything => {
+    this.everythingSub = this.everythingService
+      .getEverything(searchCriteria)
+      .subscribe(everything => {
         this.all = everything;
-      }
-    );
+      });
   }
 
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   ngOnDestroy() {
     if (this.everythingSub) {
       this.everythingSub.unsubscribe();
-
     }
   }
-
-
 }

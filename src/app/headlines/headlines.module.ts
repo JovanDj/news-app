@@ -1,17 +1,11 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import {HeadlinesRoutingModule} from './headlines-routing.module';
-import {HeadlinesComponent} from './headlines.component';
-import {SharedModule} from '../shared/shared.module';
+import { HeadlinesRoutingModule } from './headlines-routing.module';
+import { HeadlinesComponent } from './headlines.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    HeadlinesRoutingModule,
-  ],
-  declarations: [
-    HeadlinesComponent
-  ]
+  imports: [SharedModule, HeadlinesRoutingModule],
+  declarations: [HeadlinesComponent]
 })
-export class HeadlinesModule {
-}
+export class HeadlinesModule {}
