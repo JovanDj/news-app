@@ -50,16 +50,16 @@ describe('Headlines Service', () => {
           urlToImage: 'Dummy urlToImage 1'
         },
         {
-          author: 'Dummy author 1',
-          description: 'Dummy description 1',
-          publishedAt: 'Dummy publishedAt 1',
+          author: 'Dummy author 2',
+          description: 'Dummy description 2',
+          publishedAt: 'Dummy publishedAt 2',
           source: {
-            id: 'Dummy id 1',
+            id: 'Dummy id 2',
             name: 'Dummy name 1'
           },
-          title: 'Dummy title 1',
-          url: 'Dummy url 1',
-          urlToImage: 'Dummy urlToImage 1'
+          title: 'Dummy title 2',
+          url: 'Dummy url 2',
+          urlToImage: 'Dummy urlToImage 2'
         }
       ]
     };

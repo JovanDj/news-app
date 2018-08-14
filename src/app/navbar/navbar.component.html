@@ -1,10 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" (clickOutside)="closeDropdown()">
-  <a class="navbar-brand" routerLink="">{{ title }}</a>
+  <a id="title" class="navbar-brand" routerLink="">{{ title }}</a>
 
-  <span class="navbar-text">{{ subtitle }}</span>
+  <span id="subtitle" class="navbar-text">{{ subtitle }}</span>
 
-  <button type="button" class=" navbar-toggler" (click)="openDropdown()"
-          [attr.aria-expanded]="!isCollapsed" aria-controls="collapse">
+  <button type="button" class=" navbar-toggler" (click)="openDropdown()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse">
     <span class="navbar-toggler-icon"></span>
 
   </button>
