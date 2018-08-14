@@ -37,4 +37,21 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
     expect(subtitle.textContent).toContain(component.subtitle);
   });
+
+  describe('Dropdown', () => {
+    it('should be closed at start', () => {
+      expect(component.isCollapsed).toBeTruthy();
+    });
+
+    it('should open dropdown', () => {
+      component.openDropdown();
+      expect(component.isCollapsed).toBeFalsy();
+    });
+
+    it('should close dropdown', () => {
+      component.openDropdown();
+      component.closeDropdown();
+      expect(component.isCollapsed).toBeTruthy();
+    });
+  });
 });
