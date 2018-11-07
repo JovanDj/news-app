@@ -9,17 +9,19 @@ import { HomeComponent } from './home/home.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, HomeComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     CoreModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     ServiceWorkerModule.register('/news-app/ngsw-worker.js', {
       enabled: environment.production
-    })
+    }),
+    RouterModule
   ],
 
   bootstrap: [AppComponent]
