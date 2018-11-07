@@ -12,12 +12,8 @@ export class NavbarComponent implements OnInit {
 
   constructor() {}
 
-  openDropdown() {
-    this.isCollapsed = false;
-  }
-
-  closeDropdown() {
-    this.isCollapsed = true;
+  toggleDropdown() {
+    this.isCollapsed = !this.isCollapsed;
   }
 
   ngOnInit() {}
