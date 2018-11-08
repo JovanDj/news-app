@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" (clickOutside)="$event.preventDefault(); toggleDropdown()">
-  <a class=" navbar-brand" routerLink="">{{ title }}</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class=" navbar-brand" href="index.html">{{ title }}</a>
 
   <span class="navbar-text">{{ subtitle }}</span>
 
-  <button type="button" class=" navbar-toggler" (click)="$event.preventDefault(); toggleDropdown()"
-    [attr.aria-expanded]="isCollapsed" aria-controls="collapse">
+  <button type="button" class=" navbar-toggler" (click)="toggleDropdown()" [attr.aria-expanded]="isCollapsed"
+    aria-controls="collapse">
     <span class="navbar-toggler-icon"></span>
 
   </button>

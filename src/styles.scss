@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'variables';
-
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
 // Bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
@@ -10,4 +10,6 @@
 
 body {
   font-size: 16px;
+  font-family: 'Lato', sans-serif;
+
 }

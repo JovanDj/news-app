@@ -6,11 +6,6 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'home'
-  },
-  {
-    path: 'home',
     component: HomeComponent
   },
 
@@ -30,14 +25,16 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: ''
   }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules
+      preloadingStrategy: PreloadAllModules,
+      onSameUrlNavigation: 'reload',
+      anchorScrolling: 'enabled'
     })
   ],
   exports: [RouterModule]
