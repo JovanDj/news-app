@@ -11,7 +11,7 @@ export class HeadlinesService {
 
   getHeadlines(formData: any) {
     let params: HttpParams = new HttpParams();
-    params = params.append('topic', formData.topic);
+    params = params.append('q', formData.topic);
 
     for (const category of formData.category) {
       params = params.append('category', category);

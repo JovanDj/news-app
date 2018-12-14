@@ -5,15 +5,9 @@
 
     <span>Number of articles: {{ headline['totalResults'] | number }}</span>
 
-    <form [formGroup]="form" (ngSubmit)="getHeadlines(model)">
-      <formly-form [form]="form" [fields]="fields" [model]="model">
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
-      </formly-form>
-    </form>
+
+    <app-headlines-form (receiveHeadlines)="receiveHeadlines($event)"></app-headlines-form>
+
     <hr>
   </header>
 </section>
