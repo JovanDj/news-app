@@ -428,9 +428,6 @@ MIT
 @angular/core
 MIT
 
-@angular/compiler
-MIT
-
 @angular/common
 MIT
 
