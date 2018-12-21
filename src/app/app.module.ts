@@ -18,7 +18,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     CoreModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
+    NgbModule,
     ServiceWorkerModule.register('/news-app/ngsw-worker.js', {
       enabled: environment.production
     }),

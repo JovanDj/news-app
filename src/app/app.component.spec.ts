@@ -29,7 +29,7 @@ describe('AppComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule,
         ReactiveFormsModule,
-        NgbModule.forRoot(),
+        NgbModule,
         FormlyBootstrapModule,
         FormlyModule.forRoot(),
         CoreModule,

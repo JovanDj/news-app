@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   isCollapsed = true;
   title = 'News App';
-  subtitle = 'Search for news from various sources';
+  subtitle = 'Get breaking news headlines, and search for articles from over 30,000 news sources and blogs';
 
   constructor() {}
 

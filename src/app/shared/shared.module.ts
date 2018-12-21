@@ -7,21 +7,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { ClickOutsideModule } from 'ng4-click-outside';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormlyBootstrapModule,
-    NgbModule.forRoot(),
-    FormlyModule,
-    ClickOutsideModule
-  ],
-  exports: [
-    CommonModule,
-    ReactiveFormsModule,
-    NgbModule,
-    FormlyBootstrapModule,
-    FormlyModule,
-    ClickOutsideModule
-  ]
+  imports: [CommonModule, ReactiveFormsModule, FormlyBootstrapModule, NgbModule, FormlyModule, ClickOutsideModule],
+  exports: [CommonModule, ReactiveFormsModule, NgbModule, FormlyBootstrapModule, FormlyModule, ClickOutsideModule]
 })
 export class SharedModule {}
