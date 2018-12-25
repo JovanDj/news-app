@@ -1,13 +1,11 @@
 <form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
-
-
-    <div class="form-group">
-        <label for="topic">Topic</label>
-        <input formControlName="topic" type="text" class="form-control" id="topic"  placeholder="Enter topic">
-      </div>
+  <div class="form-group">
+    <label for="topic">Topic: </label>
+    <input formControlName="topic" type="text" class="form-control" id="topic" placeholder="Enter topic" />
+  </div>
 
   <div class="form-group">
-    <label for="category-select">Select category:</label>
+    <label for="category-select">Category: </label>
     <select value="general" formControlName="category" class="form-control" id="category-select" [multiple]="multiple">
       <option value="general" selected>General</option>
       <option value="business">Business</option>
@@ -23,7 +21,7 @@
   </div>
 
   <div class="form-group">
-    <label for="country-select">Select list:</label>
+    <label for="country-select">Country: </label>
     <select value="us" formControlName="country" class="form-control" id="country-select" [multiple]="multiple">
       <option value="us" selected>United States of America</option>
       <option value="ae">United Arab Emirates</option>
@@ -33,7 +31,6 @@
       <option value="gb">United Kingdom of Great Britain and Northern Ireland</option>
       <option value="hu">Hungary</option>
       <option value="ro">Romania</option>
-
     </select>
   </div>
 

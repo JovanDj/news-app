@@ -1,9 +1,7 @@
 <!-- Page Content -->
-<section class="container-fluid my-5">
-
+<section class="container py-5">
   <header>
-
-    <span *ngIf="all != undefined">Number of articles: {{ all.totalResults | number }}</span>
+    <span *ngIf="all">Number of articles: {{ all.totalResults | number }}</span>
 
     <form [formGroup]="form" (ngSubmit)="getEverything(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
@@ -14,7 +12,6 @@
         </div>
       </formly-form>
     </form>
-    <hr>
   </header>
 </section>
 
@@ -33,34 +30,37 @@
   <div class="sk-circle12 sk-child"></div>
 </div>
 
-
 <section *ngIf="all != undefined">
   <div class="articles" *ngFor="let everything of all.articles; index as i">
-    <div class="container-fluid">
-      <div class="row py-1">
-        <div class="col-md-7">
-          <a [href]="everything.url">
-            <img class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
-                 [src]="everything.urlToImage"
-                 [title]="everything.title"
-                 alt="Article image">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h5 class="text-center">
-            <span class="badge badge-light pull-left">{{ i + 1 | number }}</span>
-            <a [href]="everything.url">{{ everything.title }}</a>
-          </h5>
-          <p class="mb-2 p-0"><strong>Source: {{ everything.source.name }}</strong></p>
-          <p class="mb-2 p-0"><strong>Author: {{ everything.author }}</strong></p>
-          <p class="mb-2 p-0"><strong>{{ everything.publishedAt | date:'mediumDate' }}</strong></p>
-          <p class="mb-2 p-0">{{ everything.description }}</p>
-          <a class="btn btn-outline-primary btn-link" [href]="everything.url">Read the article</a>
-        </div>
+    <div class="row py-1">
+      <div class="col-md-7">
+        <a [href]="everything.url">
+          <img
+            class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
+            [src]="everything.urlToImage"
+            [title]="everything.title"
+            alt="Article image"
+          />
+        </a>
       </div>
-      <hr>
+      <div class="col-md-5">
+        <h5 class="text-center">
+          <span class="badge badge-light pull-left">{{ i + 1 | number }}</span>
+          <a [href]="everything.url">{{ everything.title }}</a>
+        </h5>
+        <p class="mb-2 p-0">
+          <strong>Source: {{ everything.source.name }}</strong>
+        </p>
+        <p class="mb-2 p-0">
+          <strong>Author: {{ everything.author }}</strong>
+        </p>
+        <p class="mb-2 p-0">
+          <strong>{{ everything.publishedAt | date: 'mediumDate' }}</strong>
+        </p>
+        <p class="mb-2 p-0">{{ everything.description }}</p>
+        <a class="btn btn-outline-primary btn-link" [href]="everything.url">Read the article</a>
+      </div>
     </div>
+    <hr />
   </div>
 </section>
-
-

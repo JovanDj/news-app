@@ -1,24 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top d-flex justify-content-between">
-  <a class="m-0 navbar-brand" href="index.html">{{ title }}</a>
+  <div class="container">
+    <a class="m-0 navbar-brand" href="index.html">{{ title }}</a>
 
-  <span class="navbar-text d-none d-sm-inline">{{ subtitle }}</span>
+    <span class="navbar-text d-none d-sm-inline">{{ subtitle }}</span>
 
-  <button
-    type="button"
-    class=" navbar-toggler"
-    (click)="toggleDropdown()"
-    [attr.aria-expanded]="isCollapsed"
-    aria-controls="collapse"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button
+      type="button"
+      class=" navbar-toggler"
+      (click)="toggleDropdown()"
+      [attr.aria-expanded]="isCollapsed"
+      aria-controls="collapse"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="collapse" [ngbCollapse]="isCollapsed">
-    <ul class="navbar-nav">
-      <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/headlines" routerLinkActive="active">Top headlines</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/everything" routerLinkActive="active">Everything</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/sources" routerLinkActive="active">Sources</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="collapse" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/headlines" routerLinkActive="active">Top headlines</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLink="/everything" routerLinkActive="active">Everything</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/sources" routerLinkActive="active">Sources</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
