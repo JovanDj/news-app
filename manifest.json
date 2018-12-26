@@ -2,7 +2,7 @@
   "name": "news-app",
   "short_name": "news-app",
   "theme_color": "#1976d2",
-  "description": "Fetch news from various sources and topics",
+  "description": "Fetch news from various sources",
   "lang": "en-US",
   "start_url": "https://jovandj.github.io/news-app/",
   "scope": "https://jovandj.github.io/news-app/",
