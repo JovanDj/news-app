@@ -10,7 +10,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, HomeComponent],
@@ -22,8 +21,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     ServiceWorkerModule.register('/news-app/ngsw-worker.js', {
       enabled: environment.production
     }),
-    RouterModule,
-    ClickOutsideModule
+    RouterModule
   ],
 
   bootstrap: [AppComponent]
