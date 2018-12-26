@@ -13,10 +13,7 @@ export class HeadlinesFormComponent implements OnInit {
 
   @Output() receiveHeadlines = new EventEmitter();
 
-  constructor(
-    private fb: FormBuilder,
-    private headlinesService: HeadlinesService
-  ) {
+  constructor(private fb: FormBuilder, private headlinesService: HeadlinesService) {
     this.form = this.fb.group({
       topic: [''],
       category: [['general']],
@@ -25,8 +22,6 @@ export class HeadlinesFormComponent implements OnInit {
   }
 
   submitForm(formData: any) {
-    console.log('Submited form: ', formData);
-
     this.headlinesService.getHeadlines(formData).subscribe(data => {
       this.receiveHeadlines.emit(data);
     });
