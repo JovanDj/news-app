@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Headline } from '../models/headline.model';
 
 @Component({
@@ -10,20 +9,13 @@ import { Headline } from '../models/headline.model';
 export class HeadlinesComponent implements OnInit {
   // Control spinner with this
   showSpinner: Boolean = false;
-
-  // Store subscriptions here
-  headlinesSub: Subscription = new Subscription();
-
-  // Put results of http request here
-  headline: Headline = {} as Headline;
+  headlines: Headline = {} as Headline;
 
   constructor() {}
 
   receiveHeadlines($event: any) {
-    this.headline = $event;
+    this.headlines = $event;
   }
 
   ngOnInit() {}
-
-
 }

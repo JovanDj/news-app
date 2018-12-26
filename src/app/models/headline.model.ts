@@ -5,7 +5,7 @@ export interface Headline {
 }
 
 interface Article {
-  author?: string;
+  author?: string | 'Unknown';
   description?: string;
   publishedAt?: string;
   source?: Source;
