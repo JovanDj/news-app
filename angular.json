@@ -11,13 +11,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/manifest.json"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,8 +90,14 @@
             "sourceMap": true,
             "progress": true,
             "scripts": [],
-            "styles": ["src/styles.scss"],
-            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"]
+            "styles": [
+              "src/styles.scss"
+            ],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/manifest.json"
+            ]
           }
         },
         "lint": {
@@ -94,14 +106,19 @@
             "fix": true,
             "typeCheck": true,
             "format": "stylish",
-            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/news-app-server",
+            "outputPath": "dist/server",
             "main": "src/main.server.ts",
             "tsConfig": "src/tsconfig.server.json"
           },
@@ -148,8 +165,12 @@
           "options": {
             "fix": true,
             "format": "stylish",
-            "tsConfig": ["e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

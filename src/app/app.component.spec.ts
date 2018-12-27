@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
-import { ClickOutsideModule } from 'ng4-click-outside';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { HeadlinesComponent } from './headlines/headlines.component';
 import { SourcesComponent } from './sources/sources.component';
@@ -32,8 +31,7 @@ describe('AppComponent', () => {
         NgbModule,
         FormlyBootstrapModule,
         FormlyModule.forRoot(),
-        CoreModule,
-        ClickOutsideModule
+        CoreModule
       ]
     }).compileComponents();
   }));
