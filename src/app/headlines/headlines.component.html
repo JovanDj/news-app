@@ -39,11 +39,12 @@
       </div>
       <div class="col-md-5">
         <div class="article">
-          <h5 class="text-center d-flex justify-content-between align-items-center">
+          <h5 class="text-center d-flex justify-content-between align-items-center mb-2">
             <span class="badge badge-dark align-self-start">{{ i + 1 | number }}</span>
             <a [href]="article.url">{{ article.title }}</a>
           </h5>
-          <p>
+    <div class="mb-2">
+            <p>
             <strong>Source: {{ article['source'].name }}</strong>
           </p>
           <p>
@@ -52,7 +53,8 @@
           <p>
             <strong>{{ article.publishedAt | date: 'mediumDate' }}</strong>
           </p>
-          <p>{{ article.description }}</p>
+    </div>
+          <p class="mb-2">{{ article.description }}</p>
           <a class="btn btn-outline-primary btn-link" [href]="article.url">Read the article</a>
         </div>
       </div>
