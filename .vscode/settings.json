@@ -2,6 +2,5 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "html.format.enable": false,
     "javascript.format.enable": false
 }

@@ -28,13 +28,8 @@
     <div class="row">
       <div class="col-md-7 ">
         <a [href]="article.url">
-          <img
-            on
-            class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
-            [src]="article.urlToImage"
-            [title]="article.title"
-            [alt]="article.title"
-          />
+          <img on class="img-fluid img-thumbnail rounded mx-auto d-block border border-light" [src]="article.urlToImage"
+            [title]="article.title" [alt]="article.title" />
         </a>
       </div>
       <div class="col-md-5">
@@ -43,17 +38,17 @@
             <span class="badge badge-dark align-self-start">{{ i + 1 | number }}</span>
             <a [href]="article.url">{{ article.title }}</a>
           </h5>
-    <div class="mb-2">
+          <div class="mb-2">
             <p>
-            <strong>Source: {{ article['source'].name }}</strong>
-          </p>
-          <p>
-            <strong>Author: {{ article.author }}</strong>
-          </p>
-          <p>
-            <strong>{{ article.publishedAt | date: 'mediumDate' }}</strong>
-          </p>
-    </div>
+              <strong>Source: {{ article['source'].name }}</strong>
+            </p>
+            <p>
+              <strong>Author: {{ article.author }}</strong>
+            </p>
+            <p>
+              <strong>{{ article.publishedAt | date: 'mediumDate' }}</strong>
+            </p>
+          </div>
           <p class="mb-2">{{ article.description }}</p>
           <a class="btn btn-outline-primary btn-link" [href]="article.url">Read the article</a>
         </div>
