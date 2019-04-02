@@ -1,4 +1,3 @@
-import { HeadlinesService } from './../../services/headlines.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -11,9 +10,9 @@ export class HeadlinesFormComponent implements OnInit {
   form: FormGroup;
   multiple = false;
 
-  @Output() receiveHeadlines = new EventEmitter();
+  @Output() receiveHeadlines: EventEmitter<any> = new EventEmitter();
 
-  constructor(private fb: FormBuilder, private headlinesService: HeadlinesService) {
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       topic: [''],
       category: [['general']],
@@ -22,9 +21,7 @@ export class HeadlinesFormComponent implements OnInit {
   }
 
   submitForm(formData: any) {
-    this.headlinesService.getHeadlines(formData).subscribe(data => {
-      this.receiveHeadlines.emit(data);
-    });
+    this.receiveHeadlines.emit(formData);
   }
 
   ngOnInit() {}

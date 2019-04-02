@@ -1,6 +1,6 @@
-<div class="py-5">
+<div class="py-5" *ngIf="(sources$ | async) as sources">
   <div class="row">
-    <div class="col-12" *ngFor="let source of sources; index as i">
+    <div class="col-12" *ngFor="let source of sources.sources; index as i">
       <ul class="list-group mb-5">
         <li class="list-group-item">
           Name: {{ source.name }} <span class="badge badge-primary pull-right">{{ i + 1 }}</span>

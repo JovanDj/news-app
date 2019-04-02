@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Headline } from '../models/headline.model';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class HeadlinesService {
@@ -9,7 +10,7 @@ export class HeadlinesService {
 
   constructor(private http: HttpClient) {}
 
-  getHeadlines(formData: any) {
+  getHeadlines(formData: any): Observable<Headline> {
     let params: HttpParams = new HttpParams();
     params = params.append('q', formData.topic);
 
@@ -21,6 +22,6 @@ export class HeadlinesService {
       params = params.append('country', country);
     }
 
-    return this.http.get<Headline>(this.URL, { params: params });
+    return this.http.get<Headline>(this.URL, { params });
   }
 }

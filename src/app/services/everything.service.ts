@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class EverythingService {
@@ -8,7 +9,7 @@ export class EverythingService {
 
   constructor(private http: HttpClient) {}
 
-  getEverything(searchCriteria: any) {
+  getEverything(searchCriteria: any): Observable<any> {
     let params: HttpParams = new HttpParams();
     params = params.append('q', searchCriteria.q);
 
@@ -16,6 +17,6 @@ export class EverythingService {
       params = params.append('language', language);
     }
 
-    return this.http.get(this.url, { params: params });
+    return this.http.get<any>(this.url, { params });
   }
 }

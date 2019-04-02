@@ -1,7 +1,7 @@
 <!-- Page Content -->
 <section class="container py-5">
   <header>
-    <span *ngIf="all">Number of articles: {{ all.totalResults | number }}</span>
+    <span *ngIf="(everything$ | async) as everything">Number of articles: {{ everything.totalResults | number }}</span>
 
     <form [formGroup]="form" (ngSubmit)="getEverything(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model">
@@ -30,8 +30,8 @@
   <div class="sk-circle12 sk-child"></div>
 </div>
 
-<section *ngIf="all != undefined">
-  <div class="articles" *ngFor="let everything of all.articles; index as i">
+<section *ngIf="(everything$ | async) as everything">
+  <div class="articles" *ngFor="let everything of everything.articles; index as i">
     <div class="row py-1">
       <div class="col-md-7">
         <a [href]="everything.url">

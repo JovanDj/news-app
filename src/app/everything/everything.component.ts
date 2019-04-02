@@ -1,22 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EverythingService } from '../services/everything.service';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-everything',
   templateUrl: './everything.component.html',
   styleUrls: ['./everything.component.scss']
 })
-export class EverythingComponent implements OnInit, OnDestroy {
+export class EverythingComponent {
   showSpinner: Boolean = false;
 
   // Store subscriptions here
-  everythingSub: Subscription = new Subscription();
-
-  all: any;
-  pageSize = '10';
+  everything$: Observable<any>;
 
   constructor(private everythingService: EverythingService) {}
 
@@ -75,18 +73,11 @@ export class EverythingComponent implements OnInit, OnDestroy {
   ];
 
   getEverything(searchCriteria: any) {
-    this.everythingSub = this.everythingService
-      .getEverything(searchCriteria)
-      .subscribe(everything => {
-        this.all = everything;
-      });
-  }
-
-  ngOnInit() {}
-
-  ngOnDestroy() {
-    if (this.everythingSub) {
-      this.everythingSub.unsubscribe();
-    }
+    this.showSpinner = true;
+    this.everything$ = this.everythingService.getEverything(searchCriteria).pipe(
+      finalize(() => {
+        this.showSpinner = false;
+      })
+    );
   }
 }

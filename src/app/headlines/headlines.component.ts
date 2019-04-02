@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Headline } from '../models/headline.model';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+
+import { HeadlinesService } from '../services/headlines.service';
 
 @Component({
   selector: 'app-headlines',
@@ -7,14 +11,17 @@ import { Headline } from '../models/headline.model';
   styleUrls: ['./headlines.component.scss']
 })
 export class HeadlinesComponent implements OnInit {
-  // Control spinner with this
-  showSpinner: Boolean = false;
-  headlines: Headline = {} as Headline;
+  showSpinner = false;
+  headlines$: Observable<Headline>;
 
-  constructor() {}
+  constructor(private headlinesService: HeadlinesService) {}
 
-  receiveHeadlines($event: any) {
-    this.headlines = $event;
+  receiveHeadlines(formData: any) {
+    this.headlines$ = this.headlinesService.getHeadlines(formData).pipe(
+      finalize(() => {
+        this.showSpinner = false;
+      })
+    );
   }
 
   ngOnInit() {}
