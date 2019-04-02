@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class EverythingService {
@@ -17,6 +18,6 @@ export class EverythingService {
       params = params.append('language', language);
     }
 
-    return this.http.get<any>(this.url, { params });
+    return this.http.get<any>(this.url, { params }).pipe(catchError(err => throwError(err)));
   }
 }
