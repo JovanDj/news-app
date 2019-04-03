@@ -17,6 +17,5 @@ export class SourcesComponent implements OnInit {
   ngOnInit() {
     this.showSpinner = true;
     this.sources = this.route.snapshot.data['sources'];
-    console.log(this.sources);
   }
 }
