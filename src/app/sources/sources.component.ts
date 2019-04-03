@@ -1,8 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { SourcesService } from '../services/sources.service';
-import { finalize } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Source } from '../models/source.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sources',
@@ -12,16 +10,13 @@ import { Source } from '../models/source.model';
 })
 export class SourcesComponent implements OnInit {
   showSpinner = false;
-  sources$: Observable<Source>;
+  sources: Source;
 
-  constructor(private sourcesService: SourcesService) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.showSpinner = true;
-    this.sources$ = this.sourcesService.getSources().pipe(
-      finalize(() => {
-        this.showSpinner = false;
-      })
-    );
+    this.sources = this.route.snapshot.data['sources'];
+    console.log(this.sources);
   }
 }

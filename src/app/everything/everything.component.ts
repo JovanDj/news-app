@@ -14,7 +14,6 @@ import { finalize } from 'rxjs/operators';
 export class EverythingComponent {
   showSpinner: Boolean = false;
 
-  // Store subscriptions here
   everything$: Observable<any>;
 
   constructor(private everythingService: EverythingService) {}
