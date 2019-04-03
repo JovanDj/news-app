@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SourcesService } from '../services/sources.service';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -7,6 +7,7 @@ import { Source } from '../models/source.model';
 @Component({
   selector: 'app-sources',
   templateUrl: './sources.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./sources.component.scss']
 })
 export class SourcesComponent implements OnInit {

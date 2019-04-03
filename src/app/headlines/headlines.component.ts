@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Headline } from '../models/headline.model';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -8,6 +8,7 @@ import { HeadlinesService } from '../services/headlines.service';
 @Component({
   selector: 'app-headlines',
   templateUrl: './headlines.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./headlines.component.scss']
 })
 export class HeadlinesComponent implements OnInit {

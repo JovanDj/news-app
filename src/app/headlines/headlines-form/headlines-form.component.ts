@@ -1,9 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-headlines-form',
   templateUrl: './headlines-form.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./headlines-form.component.scss']
 })
 export class HeadlinesFormComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { EverythingService } from '../services/everything.service';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
@@ -8,6 +8,7 @@ import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-everything',
   templateUrl: './everything.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./everything.component.scss']
 })
 export class EverythingComponent {
