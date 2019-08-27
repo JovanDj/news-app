@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1554278761223,
+  "timestamp": 1566918743753,
   "index": "https://jovandj.github.io/news-app/index.html",
   "assetGroups": [
     {
@@ -75,7 +75,7 @@
     "https://jovandj.github.io/news-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://jovandj.github.io/news-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://jovandj.github.io/news-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://jovandj.github.io/news-app/index.html": "f7a84e61d851b823b1d07991b75190ece9573227"
+    "https://jovandj.github.io/news-app/index.html": "a1894ec24ed2135c054fdde8ac021b05b70e25f9"
   },
   "navigationUrls": [
     {
