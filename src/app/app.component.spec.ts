@@ -24,15 +24,7 @@ describe('AppComponent', () => {
         SourcesComponent,
         HomeComponent
       ],
-      imports: [
-        HttpClientTestingModule,
-        RouterTestingModule,
-        ReactiveFormsModule,
-        NgbModule,
-        FormlyBootstrapModule,
-        FormlyModule.forRoot(),
-        CoreModule
-      ]
+      imports: [HttpClientTestingModule, RouterTestingModule, ReactiveFormsModule, NgbModule, CoreModule]
     }).compileComponents();
   }));
 

@@ -1,8 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HeadlinesService } from './headlines.service';
 import { Headline } from '../models/headline.model';
 

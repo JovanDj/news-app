@@ -1,9 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Headline } from '../models/headline.model';
+import { SearchCriteria, Article } from '../models/headline.model';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
 
 import { HeadlinesService } from '../services/headlines.service';
+import { HeadlinesFacade } from './headlines.facade';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-headlines',
@@ -13,16 +14,22 @@ import { HeadlinesService } from '../services/headlines.service';
 })
 export class HeadlinesComponent implements OnInit {
   showSpinner = false;
-  headlines$: Observable<Headline>;
+  headlines$: Observable<Article[]>;
 
-  constructor(private headlinesService: HeadlinesService) {}
+  constructor(private headlinesService: HeadlinesService, private headlinesFacade: HeadlinesFacade) {
+    this.headlines$ = this.headlinesFacade.articles$;
+  }
 
-  receiveHeadlines(formData: any) {
-    this.headlines$ = this.headlinesService.getHeadlines(formData).pipe(
-      finalize(() => {
-        this.showSpinner = false;
-      })
-    );
+  receiveHeadlines(formData: SearchCriteria) {
+    this.showSpinner = true;
+    this.headlinesService
+      .getHeadlines(formData)
+      .pipe(
+        finalize(() => {
+          this.showSpinner = false;
+        })
+      )
+      .subscribe();
   }
 
   ngOnInit() {}

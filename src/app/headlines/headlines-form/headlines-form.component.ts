@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SearchCriteria } from '../../models/headline.model';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-headlines-form',
@@ -9,9 +11,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class HeadlinesFormComponent implements OnInit {
   form: FormGroup;
-  multiple = false;
 
-  @Output() receiveHeadlines: EventEmitter<any> = new EventEmitter();
+  @Output() receiveHeadlines: EventEmitter<SearchCriteria> = new EventEmitter();
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -19,10 +20,15 @@ export class HeadlinesFormComponent implements OnInit {
       category: [['general']],
       country: [['us']]
     });
-  }
 
-  submitForm(formData: any) {
-    this.receiveHeadlines.emit(formData);
+    this.form.valueChanges
+      .pipe(
+        distinctUntilChanged(),
+        debounceTime(400)
+      )
+      .subscribe((formData: SearchCriteria) => {
+        this.receiveHeadlines.emit(formData);
+      });
   }
 
   ngOnInit() {}

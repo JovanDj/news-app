@@ -13,12 +13,7 @@ describe('HeadlinesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        FormlyModule,
-        ReactiveFormsModule,
-        HttpClientTestingModule,
-        FormlyBootstrapModule
-      ],
+      imports: [FormlyModule, ReactiveFormsModule, HttpClientTestingModule, FormlyBootstrapModule],
       declarations: [HeadlinesComponent],
       providers: [HeadlinesService]
     }).compileComponents();
