@@ -1,9 +1,8 @@
 {
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "javascript.format.enable": false,
-    "editor.minimap.maxColumn": 100,
-    "prettier.printWidth": 100,
-    "editor.wordWrap": "on"
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "javascript.format.enable": false,
+  "editor.minimap.maxColumn": 100,
+  "prettier.printWidth": 100
 }

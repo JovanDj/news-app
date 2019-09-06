@@ -9,9 +9,9 @@ export class MyHttpInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Clone the request to add the new header.
+
     const authReq = req.clone({
-      headers: req.headers.set('X-Api-Key', environment.token),
-      responseType: 'json'
+      headers: req.headers.set('Authorization', environment.token)
     });
 
     // send the newly created request

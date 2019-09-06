@@ -1,36 +1,63 @@
 <form [formGroup]="form">
-  <div class="form-group">
-    <label for="topic">Topic: </label>
-    <input formControlName="topic" type="text" class="form-control" id="topic" placeholder="Enter topic:" />
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="topic">Topic: </label>
+          <input formControlName="topic" type="text" class="form-control" id="topic" placeholder="Enter topic:" />
+        </div>
 
-  <div class="form-group">
-    <label for="category-select">Category: </label>
-    <select value="general" formControlName="category" class="form-control" id="category-select" [multiple]="multiple">
-      <option value="general" selected>General</option>
-      <option value="business">Business</option>
-      <option value="entertainment">Entertainment</option>
-      <option value="gaming">Gaming</option>
-      <option value="music">Music</option>
-      <option value="politics">Politics</option>
-      <option value="health-and-medical">Health and medical</option>
-      <option value="science-and-nature">Science and nature</option>
-      <option value="sport">Sport</option>
-      <option value="technology">Technology</option>
-    </select>
-  </div>
+        <div class="form-group">
+          <label for="category-select">Category: </label>
+          <select
+            value="general"
+            formControlName="category"
+            class="form-control"
+            id="category-select"
+            [multiple]="multiple"
+          >
+            <option value="general" selected>General</option>
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="gaming">Gaming</option>
+            <option value="music">Music</option>
+            <option value="politics">Politics</option>
+            <option value="health-and-medical">Health and medical</option>
+            <option value="science-and-nature">Science and nature</option>
+            <option value="sport">Sport</option>
+            <option value="technology">Technology</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="country-select">Country: </label>
+          <select value="us" formControlName="country" class="form-control" id="country-select" [multiple]="multiple">
+            <option value="us" selected>United States of America</option>
+            <option value="ae">United Arab Emirates</option>
+            <option value="ar">Argentina</option>
+            <option value="rs">Serbia</option>
+            <option value="de">Germany</option>
+            <option value="gb">United Kingdom of Great Britain and Northern Ireland</option>
+            <option value="hu">Hungary</option>
+            <option value="ro">Romania</option>
+          </select>
+        </div>
 
-  <div class="form-group">
-    <label for="country-select">Country: </label>
-    <select value="us" formControlName="country" class="form-control" id="country-select" [multiple]="multiple">
-      <option value="us" selected>United States of America</option>
-      <option value="ae">United Arab Emirates</option>
-      <option value="ar">Argentina</option>
-      <option value="rs">Serbia</option>
-      <option value="de">Germany</option>
-      <option value="gb">United Kingdom of Great Britain and Northern Ireland</option>
-      <option value="hu">Hungary</option>
-      <option value="ro">Romania</option>
-    </select>
+        <div class="form-group">
+          <label for="page-size">Page size</label>
+          <input
+            type="number"
+            formControlName="pageSize"
+            class="form-control"
+            [min]="minPageSize"
+            [max]="maxPageSize"
+            [value]="defaultPageSize"
+            id="page-size"
+            placeholder="Page size:"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </form>

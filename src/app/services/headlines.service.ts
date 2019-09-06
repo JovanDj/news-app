@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Headline } from '../models/headline.model';
+import { Headline, SearchCriteria } from '../models/headline.model';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { HeadlinesFacade } from '../headlines/headlines.facade';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class HeadlinesService {
   URL: string = environment.baseUrl + '/top-headlines';
 
-  constructor(private http: HttpClient, private headlinesFacade: HeadlinesFacade) {}
+  constructor(private http: HttpClient) {}
 
-  getHeadlines(formData: any): Observable<Headline> {
+  getHeadlines(formData: SearchCriteria, page = 1): Observable<Headline> {
     let params: HttpParams = new HttpParams();
-    params = params.append('q', formData.topic);
+    params = params.set('q', formData.topic);
+    params = params.set('pageSize', formData.pageSize.toString());
+    params = params.set('page', page.toString());
 
     for (const category of formData.category) {
       params = params.append('category', category);
@@ -24,12 +25,6 @@ export class HeadlinesService {
       params = params.append('country', country);
     }
 
-    return this.http.get<Headline>(this.URL, { params }).pipe(
-      tap((headlines: Headline) => {
-        this.headlinesFacade.updateHeadlines(headlines);
-      }),
-
-      catchError((err: HttpErrorResponse) => throwError(err))
-    );
+    return this.http.get<Headline>(this.URL, { params }).pipe(catchError((err: HttpErrorResponse) => throwError(err)));
   }
 }

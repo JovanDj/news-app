@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SearchCriteria } from '../../models/headline.model';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
@@ -11,14 +11,23 @@ import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 })
 export class HeadlinesFormComponent implements OnInit {
   form: FormGroup;
+  minPageSize = 1;
+  maxPageSize = 100;
+  defaultPageSize = 20;
 
   @Output() receiveHeadlines: EventEmitter<SearchCriteria> = new EventEmitter();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
     this.form = this.fb.group({
       topic: [''],
       category: [['general']],
-      country: [['us']]
+      country: [['us']],
+      pageSize: [
+        this.defaultPageSize,
+        Validators.compose([Validators.min(this.minPageSize), Validators.max(this.maxPageSize)])
+      ]
     });
 
     this.form.valueChanges
@@ -30,6 +39,4 @@ export class HeadlinesFormComponent implements OnInit {
         this.receiveHeadlines.emit(formData);
       });
   }
-
-  ngOnInit() {}
 }

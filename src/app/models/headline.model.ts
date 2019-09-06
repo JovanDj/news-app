@@ -23,4 +23,5 @@ export interface SearchCriteria {
   topic: string;
   category: string[];
   country: string[];
+  pageSize: number;
 }
