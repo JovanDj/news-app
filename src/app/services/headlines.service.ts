@@ -13,6 +13,7 @@ export class HeadlinesService {
 
   getHeadlines(formData: SearchCriteria, page = 1): Observable<Headline> {
     let params: HttpParams = new HttpParams();
+
     params = params.set('q', formData.topic);
     params = params.set('pageSize', formData.pageSize.toString());
     params = params.set('page', page.toString());

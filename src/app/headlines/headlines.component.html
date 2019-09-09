@@ -1,5 +1,4 @@
-<!-- Page Content -->
-<section class="py-5">
+<section class="py-5" #form>
   <div class="row">
     <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3">
       <app-headlines-form (receiveHeadlines)="receiveHeadlines($event)"></app-headlines-form>
@@ -9,7 +8,7 @@
 
 <h1 *ngIf="showSpinner">Please wait</h1>
 
-<section *ngIf="headlines$ | async as headlines">
+<section #headlines_section *ngIf="headlines$ | async as headlines">
   <article class="articles" *ngFor="let article of headlines; index as i">
     <div class="row">
       <div class="col-md-7 ">
@@ -48,18 +47,16 @@
   </article>
 </section>
 
-<ng-container *ngIf="headlines$ | async as headlines">
-  <div class="d-flex">
-    <button (click)="pageDecrease()" *ngIf="(page$ | async) > 1" type="button" class="btn btn-primary">
-      Load less
-    </button>
-    <button
-      *ngIf="headlines.length === (pageSize$ | async)"
-      (click)="pageIncrease()"
-      type="button"
-      class="btn btn-primary"
-    >
-      Load more
-    </button>
-  </div>
-</ng-container>
+<div *ngIf="headlines$ | async as headlines" class="page-buttons">
+  <button (click)="pageDecrease(form)" *ngIf="(page$ | async) > 1" type="button" class="btn btn-primary float-left">
+    Load less
+  </button>
+  <button
+    *ngIf="headlines.length === (pageSize$ | async)"
+    (click)="pageIncrease(form)"
+    type="button"
+    class="btn btn-primary float-right"
+  >
+    Load more
+  </button>
+</div>

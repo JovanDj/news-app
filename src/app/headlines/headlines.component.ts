@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { HeadlinesService } from '../services/headlines.service';
 import { HeadlinesFacade } from './headlines.facade';
-import { finalize, tap, map } from 'rxjs/operators';
+import { finalize, tap, map, skip } from 'rxjs/operators';
 
 @Component({
   selector: 'app-headlines',
@@ -20,7 +20,7 @@ export class HeadlinesComponent implements OnInit {
   page$: Observable<number>;
 
   constructor(private headlinesService: HeadlinesService, private headlinesFacade: HeadlinesFacade) {
-    this.headlines$ = this.headlinesFacade.articles$;
+    this.headlines$ = this.headlinesFacade.articles$.pipe(skip(1));
     this.totalResults$ = this.headlinesFacade.totalResults$;
     this.page$ = this.headlinesFacade.page$;
     this.pageSize$ = this.headlinesFacade.searchCriteria$.pipe(
@@ -50,10 +50,14 @@ export class HeadlinesComponent implements OnInit {
       .subscribe();
   }
 
-  pageIncrease() {
+  pageIncrease(el: HTMLElement) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+
     this.headlinesFacade.pageIncrease();
   }
-  pageDecrease() {
+  pageDecrease(el: HTMLElement) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+
     this.headlinesFacade.pageDecrease();
   }
 
