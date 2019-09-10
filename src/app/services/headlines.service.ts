@@ -18,13 +18,9 @@ export class HeadlinesService {
     params = params.set('pageSize', formData.pageSize.toString());
     params = params.set('page', page.toString());
 
-    for (const category of formData.category) {
-      params = params.append('category', category);
-    }
+    params = params.append('category', formData.category);
 
-    for (const country of formData.country) {
-      params = params.append('country', country);
-    }
+    params = params.append('country', formData.country);
 
     return this.http.get<Headline>(this.URL, { params }).pipe(catchError((err: HttpErrorResponse) => throwError(err)));
   }

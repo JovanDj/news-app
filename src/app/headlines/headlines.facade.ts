@@ -17,9 +17,9 @@ let _state: HeadlinesState = {
     totalResults: 0
   },
   searchCriteria: {
-    category: ['general'],
+    category: 'general',
     pageSize: 20,
-    country: ['us'],
+    country: 'us',
     topic: ''
   },
   page: 1
@@ -37,7 +37,8 @@ export class HeadlinesFacade {
       return state.headlines.articles;
     }),
     skip(1),
-    distinctUntilChanged()
+    distinctUntilChanged(),
+    shareReplay(1)
   );
 
   totalResults$ = this.state$.pipe(

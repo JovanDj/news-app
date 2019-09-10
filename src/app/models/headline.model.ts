@@ -21,7 +21,7 @@ interface Source {
 
 export interface SearchCriteria {
   topic: string;
-  category: string[];
-  country: string[];
+  category: string;
+  country: string;
   pageSize: number;
 }

@@ -50,6 +50,10 @@ export class HeadlinesComponent implements OnInit {
       .subscribe();
   }
 
+  onImageScroll() {
+    console.log('scrolled');
+  }
+
   pageIncrease(el: HTMLElement) {
     el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
 

@@ -14,6 +14,7 @@ export class HeadlinesFormComponent implements OnInit {
   minPageSize = 1;
   maxPageSize = 100;
   defaultPageSize = 20;
+  multiple = true;
 
   @Output() receiveHeadlines: EventEmitter<SearchCriteria> = new EventEmitter();
 
@@ -22,8 +23,8 @@ export class HeadlinesFormComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       topic: [''],
-      category: [['general']],
-      country: [['us']],
+      category: ['general'],
+      country: ['us'],
       pageSize: [
         this.defaultPageSize,
         Validators.compose([Validators.min(this.minPageSize), Validators.max(this.maxPageSize)])
@@ -33,7 +34,7 @@ export class HeadlinesFormComponent implements OnInit {
     this.form.valueChanges
       .pipe(
         distinctUntilChanged(),
-        debounceTime(400)
+        debounceTime(100)
       )
       .subscribe((formData: SearchCriteria) => {
         this.receiveHeadlines.emit(formData);
