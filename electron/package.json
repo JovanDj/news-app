@@ -1,0 +1,23 @@
+{
+  "name": "news-app",
+  "version": "1.0.0",
+  "author": "Jovan Djukic",
+  "description": "News app",
+  "main": "index.js",
+  "scripts": {
+    "electron:start": "electron ./",
+    "build": "electron-builder build --win"
+  },
+  "dependencies": {
+    "@capacitor/electron": "^1.2.1",
+    "electron-is-dev": "^1.1.0"
+  },
+  "devDependencies": {
+    "electron": "^6.0.10",
+    "electron-builder": "^21.2.0"
+  },
+  "keywords": [
+    "capacitor",
+    "electron"
+  ]
+}
