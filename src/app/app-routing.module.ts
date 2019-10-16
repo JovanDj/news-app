@@ -14,10 +14,10 @@ const routes: Routes = [
     loadChildren: () => import('./headlines/headlines.module').then(m => m.HeadlinesModule)
   },
 
-  {
-    path: 'everything',
-    loadChildren: () => import('./everything/everything.module').then(m => m.EverythingModule)
-  },
+  // {
+  //   path: 'everything',
+  //   loadChildren: () => import('./everything/everything.module').then(m => m.EverythingModule)
+  // },
   {
     path: 'sources',
     loadChildren: () => import('./sources/sources.module').then(m => m.SourcesModule)

@@ -2,12 +2,11 @@
 
 @import 'variables';
 
-@import "../node_modules/bootswatch/dist/sketchy/variables";
-@import '../node_modules/bootstrap/scss/bootstrap';
-@import "../node_modules/bootswatch/dist/sketchy/bootswatch";
+@import '../node_modules/bootswatch/dist/sketchy/variables';
+@import '../node_modules/bootstrap-scss/bootstrap';
+@import '../node_modules/bootswatch/dist/sketchy/bootswatch';
 
 @import '../node_modules/font-awesome/scss/font-awesome';
-
 
 // body {
 //     background-image: url('assets/bg.jpg');
