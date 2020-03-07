@@ -5,7 +5,9 @@ import { Source } from '../models/source.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SourcesService {
   URL = environment.baseUrl + '/sources';
 

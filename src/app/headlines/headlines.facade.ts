@@ -83,8 +83,6 @@ export class HeadlinesFacade {
 
   updateHeadlines(headlines: Headline) {
     this.store.next((_state = { ..._state, headlines }));
-
-    console.log(this.store.getValue());
   }
 
   updateSearchCriteria(searchCriteria: SearchCriteria) {
@@ -94,12 +92,10 @@ export class HeadlinesFacade {
   pageIncrease() {
     const page = ++_state.page;
     this.store.next((_state = { ..._state, page }));
-    console.log(this.store.getValue());
   }
 
   pageDecrease() {
     const page = --_state.page;
     this.store.next((_state = { ..._state, page }));
-    console.log(this.store.getValue());
   }
 }

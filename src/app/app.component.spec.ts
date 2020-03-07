@@ -3,8 +3,6 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormlyModule } from '@ngx-formly/core';
-import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { HeadlinesComponent } from './headlines/headlines.component';
 import { SourcesComponent } from './sources/sources.component';
 import { HomeComponent } from './home/home.component';

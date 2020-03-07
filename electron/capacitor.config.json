@@ -1,7 +1,0 @@
-{
-  "appId": "com.jovandj.newsapp",
-  "appName": "news-app",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}

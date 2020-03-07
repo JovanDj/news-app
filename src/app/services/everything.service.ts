@@ -4,7 +4,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class EverythingService {
   url: string = environment.baseUrl + '/everything';
 
@@ -18,6 +20,8 @@ export class EverythingService {
       params = params.append('language', language);
     }
 
-    return this.http.get<any>(this.url, { params }).pipe(catchError(err => throwError(err)));
+    return this.http
+      .get<any>(this.url, { params })
+      .pipe(catchError(err => throwError(err)));
   }
 }

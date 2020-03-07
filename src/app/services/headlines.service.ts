@@ -5,7 +5,9 @@ import { Headline, SearchCriteria } from '../models/headline.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HeadlinesService {
   URL: string = environment.baseUrl + '/top-headlines';
 
@@ -22,6 +24,8 @@ export class HeadlinesService {
 
     params = params.append('country', formData.country);
 
-    return this.http.get<Headline>(this.URL, { params }).pipe(catchError((err: HttpErrorResponse) => throwError(err)));
+    return this.http
+      .get<Headline>(this.URL, { params })
+      .pipe(catchError((err: HttpErrorResponse) => throwError(err)));
   }
 }

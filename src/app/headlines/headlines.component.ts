@@ -25,7 +25,6 @@ export class HeadlinesComponent implements OnInit {
     this.page$ = this.headlinesFacade.page$;
     this.pageSize$ = this.headlinesFacade.searchCriteria$.pipe(
       map((searchCriteria: SearchCriteria) => {
-        console.log(searchCriteria.pageSize);
         return searchCriteria.pageSize;
       })
     );
@@ -40,7 +39,6 @@ export class HeadlinesComponent implements OnInit {
       .getHeadlines(formData)
       .pipe(
         tap((headlines: Headline) => {
-          console.log(headlines);
           this.headlinesFacade.updateHeadlines(headlines);
         }),
         finalize(() => {
@@ -48,10 +46,6 @@ export class HeadlinesComponent implements OnInit {
         })
       )
       .subscribe();
-  }
-
-  onImageScroll() {
-    console.log('scrolled');
   }
 
   pageIncrease(el: HTMLElement) {
