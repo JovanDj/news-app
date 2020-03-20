@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent
   },
 
   {
-    path: 'headlines',
-    loadChildren: () => import('./headlines/headlines.module').then(m => m.HeadlinesModule)
+    path: "headlines",
+    loadChildren: () =>
+      import("./headlines/headlines.module").then(m => m.HeadlinesModule)
   },
 
   // {
@@ -19,13 +20,14 @@ const routes: Routes = [
   //   loadChildren: () => import('./everything/everything.module').then(m => m.EverythingModule)
   // },
   {
-    path: 'sources',
-    loadChildren: () => import('./sources/sources.module').then(m => m.SourcesModule)
+    path: "sources",
+    loadChildren: () =>
+      import("./sources/sources.module").then(m => m.SourcesModule)
   },
 
   {
-    path: '**',
-    redirectTo: ''
+    path: "**",
+    redirectTo: ""
   }
 ];
 
@@ -33,8 +35,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
-      onSameUrlNavigation: 'reload',
-      anchorScrolling: 'enabled'
+      onSameUrlNavigation: "reload",
+      anchorScrolling: "enabled"
     })
   ],
   exports: [RouterModule]

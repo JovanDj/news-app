@@ -67,6 +67,7 @@
     "@types/node": "^13.9.0",
     "angular-cli-ghpages": "^0.6.2",
     "codelyzer": "^5.2.1",
+    "husky": "^4.2.3",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "^4.2.1",
     "karma": "^4.4.1",
@@ -78,12 +79,26 @@
     "karma-jasmine": "^3.1.1",
     "karma-jasmine-html-reporter": "^1.5.2",
     "karma-safari-launcher": "^1.0.0",
+    "prettier": "^1.19.1",
     "protractor": "^5.4.3",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
     "tslint-angular": "^3.0.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.2.0",
     "typescript": "~3.7.5",
     "webpack-cli": "^3.3.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "ng lint",
+      "git add"
+    ]
   }
 }

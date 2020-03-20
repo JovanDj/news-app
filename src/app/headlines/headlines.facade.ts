@@ -1,8 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Headline, SearchCriteria } from '../models/headline.model';
-import { BehaviorSubject } from 'rxjs';
-import { map, distinctUntilChanged, switchMap, tap, startWith, skip, shareReplay } from 'rxjs/operators';
-import { HeadlinesService } from '../services/headlines.service';
+import { Injectable } from "@angular/core";
+import { Headline, SearchCriteria } from "../models/headline.model";
+import { BehaviorSubject } from "rxjs";
+import {
+  map,
+  distinctUntilChanged,
+  switchMap,
+  tap,
+  startWith,
+  skip,
+  shareReplay
+} from "rxjs/operators";
+import { HeadlinesService } from "../services/headlines.service";
 
 export interface HeadlinesState {
   headlines: Headline;
@@ -13,20 +21,20 @@ export interface HeadlinesState {
 let _state: HeadlinesState = {
   headlines: {
     articles: [],
-    status: '',
+    status: "",
     totalResults: 0
   },
   searchCriteria: {
-    category: 'general',
+    category: "general",
     pageSize: 20,
-    country: 'us',
-    topic: ''
+    country: "us",
+    topic: ""
   },
   page: 1
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class HeadlinesFacade {
   private store = new BehaviorSubject<HeadlinesState>(_state);
@@ -37,32 +45,28 @@ export class HeadlinesFacade {
       return state.headlines.articles;
     }),
     skip(1),
-    distinctUntilChanged(),
-    shareReplay(1)
+    distinctUntilChanged()
   );
 
   totalResults$ = this.state$.pipe(
     map(state => {
       return state.headlines.totalResults;
     }),
-    distinctUntilChanged(),
-    shareReplay(1)
+    distinctUntilChanged()
   );
 
   searchCriteria$ = this.state$.pipe(
     map(state => {
       return state.searchCriteria;
     }),
-    distinctUntilChanged(),
-    shareReplay(1)
+    distinctUntilChanged()
   );
 
   page$ = this.state$.pipe(
     map(state => {
       return state.page;
     }),
-    distinctUntilChanged(),
-    shareReplay(1)
+    distinctUntilChanged()
   );
 
   constructor(private headlinesService: HeadlinesService) {
@@ -71,11 +75,13 @@ export class HeadlinesFacade {
         skip(1),
         startWith(0),
         switchMap(() => {
-          return this.headlinesService.getHeadlines(_state.searchCriteria, _state.page).pipe(
-            tap((headlines: Headline) => {
-              this.updateHeadlines(headlines);
-            })
-          );
+          return this.headlinesService
+            .getHeadlines(_state.searchCriteria, _state.page)
+            .pipe(
+              tap((headlines: Headline) => {
+                this.updateHeadlines(headlines);
+              })
+            );
         })
       )
       .subscribe();

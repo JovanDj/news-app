@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { HomeComponent } from './home.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import { HomeComponent } from "./home.component";
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('HomeComponent', () => {
+describe("HomeComponent", () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
@@ -20,13 +20,13 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeDefined();
   });
 });
 
-describe('Home component isolated', () => {
-  it('should create', () => {
+describe("Home component isolated", () => {
+  it("should create", () => {
     const home: HomeComponent = new HomeComponent();
     expect(home).toBeDefined();
   });

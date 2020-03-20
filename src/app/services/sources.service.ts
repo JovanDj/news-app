@@ -14,6 +14,8 @@ export class SourcesService {
   constructor(private http: HttpClient) {}
 
   getSources(): Observable<Source> {
-    return this.http.get<Source>(this.URL).pipe(catchError(err => throwError(err)));
+    return this.http
+      .get<Source>(this.URL)
+      .pipe(catchError(err => throwError(err)));
   }
 }

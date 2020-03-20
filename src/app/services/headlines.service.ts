@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpParams,
+  HttpErrorResponse
+} from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Headline, SearchCriteria } from '../models/headline.model';
 import { Observable, throwError } from 'rxjs';

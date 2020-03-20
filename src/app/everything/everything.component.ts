@@ -73,10 +73,12 @@ export class EverythingComponent {
 
   getEverything(searchCriteria: any) {
     this.showSpinner = true;
-    this.everything$ = this.everythingService.getEverything(searchCriteria).pipe(
-      finalize(() => {
-        this.showSpinner = false;
-      })
-    );
+    this.everything$ = this.everythingService
+      .getEverything(searchCriteria)
+      .pipe(
+        finalize(() => {
+          this.showSpinner = false;
+        })
+      );
   }
 }

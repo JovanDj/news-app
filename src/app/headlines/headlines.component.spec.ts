@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { HeadlinesComponent } from './headlines.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { HeadlinesComponent } from "./headlines.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ReactiveFormsModule } from "@angular/forms";
 
-describe('HeadlinesComponent', () => {
+describe("HeadlinesComponent", () => {
   let component: HeadlinesComponent;
   let fixture: ComponentFixture<HeadlinesComponent>;
 
@@ -21,7 +21,7 @@ describe('HeadlinesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeDefined();
   });
 });

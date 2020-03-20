@@ -1,4 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SearchCriteria } from '../../models/headline.model';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
@@ -27,15 +33,15 @@ export class HeadlinesFormComponent implements OnInit {
       country: ['us'],
       pageSize: [
         this.defaultPageSize,
-        Validators.compose([Validators.min(this.minPageSize), Validators.max(this.maxPageSize)])
+        Validators.compose([
+          Validators.min(this.minPageSize),
+          Validators.max(this.maxPageSize)
+        ])
       ]
     });
 
     this.form.valueChanges
-      .pipe(
-        distinctUntilChanged(),
-        debounceTime(100)
-      )
+      .pipe(distinctUntilChanged(), debounceTime(100))
       .subscribe((formData: SearchCriteria) => {
         this.receiveHeadlines.emit(formData);
       });
