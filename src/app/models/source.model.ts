@@ -1,9 +1,9 @@
-export interface Source {
+export interface SourceResponse {
   status: string;
-  sources: Sources[];
+  sources: Source[];
 }
 
-interface Sources {
+export interface Source {
   id: string;
   name: string;
   description: string;

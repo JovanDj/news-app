@@ -1,10 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
-import { SearchCriteria, Article, Headline } from "../models/headline.model";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-
+import { finalize, map, skip, tap } from "rxjs/operators";
+import {
+  Article,
+  HeadlinesResponse,
+  SearchCriteria
+} from "../models/headline.model";
 import { HeadlinesService } from "../services/headlines.service";
 import { HeadlinesFacade } from "./headlines.facade";
-import { finalize, tap, map, skip } from "rxjs/operators";
 
 @Component({
   selector: "app-headlines",
@@ -42,7 +45,7 @@ export class HeadlinesComponent implements OnInit {
     this.headlinesService
       .getHeadlines(formData)
       .pipe(
-        tap((headlines: Headline) => {
+        tap((headlines: HeadlinesResponse) => {
           this.headlinesFacade.updateHeadlines(headlines);
         }),
 

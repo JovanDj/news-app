@@ -1,11 +1,11 @@
-import { TestBed } from "@angular/core/testing";
-
-import { SourcesService } from "./sources.service";
 import {
   HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
+  TestRequest
 } from "@angular/common/http/testing";
-import { Source } from "../models/source.model";
+import { TestBed } from "@angular/core/testing";
+import { SourceResponse } from "../models/source.model";
+import { SourcesService } from "./sources.service";
 
 describe("SourcesService", () => {
   let service: SourcesService;
@@ -34,7 +34,7 @@ describe("SourcesService", () => {
   });
 
   it("should retrieve data from API", () => {
-    const dummySource: Source = {
+    const dummySource: SourceResponse = {
       status: "ok",
       sources: [
         {
@@ -49,12 +49,12 @@ describe("SourcesService", () => {
         }
       ]
     };
-    service.getSources().subscribe(source => {
-      expect(source["sources"].length).toBe(1);
-      expect(source).toEqual(dummySource);
+    service.getSources().subscribe((sourceResonse: SourceResponse) => {
+      expect(sourceResonse.sources.length).toBe(1);
+      expect(sourceResonse).toEqual(dummySource);
     });
 
-    const request = httpMock.expectOne(`${service.URL}`);
+    const request: TestRequest = httpMock.expectOne(`${service.URL}`);
     expect(request.request.method).toBe("GET");
     expect(request.request.url).toBe(`${service.URL}`);
     expect(request.request.responseType).toBe("json");

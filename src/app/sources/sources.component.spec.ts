@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { SourcesComponent } from "./sources.component";
-import { SourcesService } from "../services/sources.service";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { SourcesService } from "../services/sources.service";
+import { SourcesComponent } from "./sources.component";
 
 describe("SourcesComponent", () => {
   let component: SourcesComponent;
@@ -10,7 +10,7 @@ describe("SourcesComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [SourcesComponent],
       providers: [SourcesService]
     }).compileComponents();

@@ -1,8 +1,6 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { HeadlinesComponent } from "./headlines.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { ReactiveFormsModule } from "@angular/forms";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HeadlinesComponent } from "./headlines.component";
 
 describe("HeadlinesComponent", () => {
   let component: HeadlinesComponent;
@@ -10,7 +8,7 @@ describe("HeadlinesComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      imports: [HttpClientTestingModule],
       declarations: [HeadlinesComponent]
     }).compileComponents();
   }));

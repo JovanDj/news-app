@@ -1,19 +1,19 @@
 import {
+  ChangeDetectionStrategy,
   Component,
-  OnInit,
-  Output,
   EventEmitter,
-  ChangeDetectionStrategy
-} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SearchCriteria } from '../../models/headline.model';
-import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+  OnInit,
+  Output
+} from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { SearchCriteria } from "../../models/headline.model";
 
 @Component({
-  selector: 'app-headlines-form',
-  templateUrl: './headlines-form.component.html',
+  selector: "app-headlines-form",
+  templateUrl: "./headlines-form.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./headlines-form.component.scss']
+  styleUrls: ["./headlines-form.component.scss"]
 })
 export class HeadlinesFormComponent implements OnInit {
   form: FormGroup;
@@ -28,9 +28,9 @@ export class HeadlinesFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      topic: [''],
-      category: ['general'],
-      country: ['us'],
+      topic: [""],
+      category: ["general"],
+      country: ["us"],
       pageSize: [
         this.defaultPageSize,
         Validators.compose([

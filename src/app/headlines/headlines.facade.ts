@@ -1,19 +1,18 @@
 import { Injectable } from "@angular/core";
-import { Headline, SearchCriteria } from "../models/headline.model";
 import { BehaviorSubject } from "rxjs";
 import {
-  map,
   distinctUntilChanged,
-  switchMap,
-  tap,
-  startWith,
+  map,
   skip,
-  shareReplay
+  startWith,
+  switchMap,
+  tap
 } from "rxjs/operators";
+import { HeadlinesResponse, SearchCriteria } from "../models/headline.model";
 import { HeadlinesService } from "../services/headlines.service";
 
 export interface HeadlinesState {
-  headlines: Headline;
+  headlines: HeadlinesResponse;
   searchCriteria: SearchCriteria;
   page: number;
 }
@@ -26,9 +25,10 @@ let _state: HeadlinesState = {
   },
   searchCriteria: {
     category: "general",
-    pageSize: 20,
+    pageSize: 10,
     country: "us",
-    topic: ""
+    topic: "",
+    page: 1
   },
   page: 1
 };
@@ -78,7 +78,7 @@ export class HeadlinesFacade {
           return this.headlinesService
             .getHeadlines(_state.searchCriteria, _state.page)
             .pipe(
-              tap((headlines: Headline) => {
+              tap((headlines: HeadlinesResponse) => {
                 this.updateHeadlines(headlines);
               })
             );
@@ -87,7 +87,7 @@ export class HeadlinesFacade {
       .subscribe();
   }
 
-  updateHeadlines(headlines: Headline) {
+  updateHeadlines(headlines: HeadlinesResponse) {
     this.store.next((_state = { ..._state, headlines }));
   }
 

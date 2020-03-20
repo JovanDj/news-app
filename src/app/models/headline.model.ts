@@ -1,4 +1,4 @@
-export interface Headline {
+export interface HeadlinesResponse {
   articles: Article[];
   status: string;
   totalResults: number;
@@ -23,5 +23,6 @@ export interface SearchCriteria {
   topic: string;
   category: string;
   country: string;
+  page: number;
   pageSize: number;
 }

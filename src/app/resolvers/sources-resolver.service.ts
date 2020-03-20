@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Resolve } from '@angular/router';
-import { Source } from '../models/source.model';
-import { SourcesService } from '../services/sources.service';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Resolve } from "@angular/router";
+import { Observable } from "rxjs";
+import { SourceResponse } from "../models/source.model";
+import { SourcesService } from "../services/sources.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-export class SourcesResolverService implements Resolve<Source> {
+export class SourcesResolverService implements Resolve<SourceResponse> {
   constructor(private sourcesService: SourcesService) {}
 
-  resolve(): Observable<Source> {
+  resolve(): Observable<SourceResponse> {
     return this.sourcesService.getSources();
   }
 }

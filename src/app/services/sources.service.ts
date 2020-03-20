@@ -1,21 +1,22 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { Source } from '../models/source.model';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable, throwError } from "rxjs";
+import { catchError, shareReplay } from "rxjs/operators";
+import { environment } from "../../environments/environment";
+import { SourceResponse } from "../models/source.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SourcesService {
-  URL = environment.baseUrl + '/sources';
+  URL: string = environment.baseUrl + "/sources";
 
   constructor(private http: HttpClient) {}
 
-  getSources(): Observable<Source> {
-    return this.http
-      .get<Source>(this.URL)
-      .pipe(catchError(err => throwError(err)));
+  getSources(): Observable<SourceResponse> {
+    return this.http.get<SourceResponse>(this.URL).pipe(
+      shareReplay(),
+      catchError(err => throwError(err))
+    );
   }
 }

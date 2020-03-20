@@ -1,10 +1,11 @@
-import { TestBed } from "@angular/core/testing";
 import {
   HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
+  TestRequest
 } from "@angular/common/http/testing";
+import { TestBed } from "@angular/core/testing";
+import { HeadlinesResponse, SearchCriteria } from "../models/headline.model";
 import { HeadlinesService } from "./headlines.service";
-import { Headline } from "../models/headline.model";
 
 describe("Headlines Service", () => {
   let service: HeadlinesService;
@@ -33,7 +34,7 @@ describe("Headlines Service", () => {
   });
 
   it("should retrieve data from API", () => {
-    const dummyHeadline: Headline = {
+    const dummyHeadlines: HeadlinesResponse = {
       status: "Dummy status",
       totalResults: 2,
       articles: [
@@ -63,27 +64,34 @@ describe("Headlines Service", () => {
         }
       ]
     };
-    const formData: any = {
+    const formData: SearchCriteria = {
       topic: "",
       category: "General",
-      country: "Germany"
+      country: "Germany",
+      page: 1,
+      pageSize: 10
     };
 
-    service.getHeadlines(formData).subscribe(headline => {
-      expect(headline["articles"].length).toBe(2);
-      expect(headline).toEqual(dummyHeadline);
-    });
+    service
+      .getHeadlines(formData)
+      .subscribe((headlinesResponse: HeadlinesResponse) => {
+        expect(headlinesResponse.articles.length).toBe(2);
+        expect(headlinesResponse).toEqual(dummyHeadlines);
+      });
 
-    const request = httpMock.expectOne(
-      req =>
-        req.method === "GET" &&
-        req.url === `${service.URL}` &&
-        req.params.has("category") === true &&
-        req.params.has("topic") === true &&
-        req.params.has("country") === true &&
-        req.responseType === "json"
+    const request: TestRequest = httpMock.expectOne(
+      // (req: HttpRequest<any>) =>
+      //   req.method === "GET" &&
+      //   req.url === `${service.URL}` &&
+      //   req.params.has("category") === true &&
+      //   req.params.has("topic") === true &&
+      //   req.params.has("country") === true &&
+      //   req.responseType === "json" &&
+      `${service.URL}?q=&pageSize=10&page=1&category=General&country=Germany`
     );
 
-    request.flush(dummyHeadline);
+    expect(request.request.method).toBe("GET");
+
+    request.flush(dummyHeadlines);
   });
 });
