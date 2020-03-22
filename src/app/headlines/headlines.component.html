@@ -8,9 +8,9 @@
   </div>
 </section>
 
-<h1 *ngIf="showSpinner">Please wait</h1>
-
 <ng-container *ngIf="vm$ | async as vm">
+  <h1 *ngIf="vm.loading">Please wait</h1>
+
   <section #headlines_section>
     <article
       [id]="article.title"

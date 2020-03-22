@@ -110,23 +110,23 @@ export class HeadlinesFacade {
   }
 
   updateHeadlines(headlines: HeadlinesResponse): void {
-    this.updateState((_state = { ..._state, headlines }));
+    this.updateState((_state = { ..._state, headlines, loading: true }));
   }
 
   updateSearchCriteria(searchCriteria: SearchCriteria): void {
-    this.updateState((_state = { ..._state, searchCriteria }));
+    this.updateState((_state = { ..._state, searchCriteria, loading: true }));
   }
 
   pageIncrease(): void {
-    const page = ++_state.page;
+    const page: number = ++_state.page;
 
-    this.updateState((_state = { ..._state, page }));
+    this.updateState((_state = { ..._state, page, loading: true }));
   }
 
   pageDecrease(): void {
     const page: number = --_state.page;
 
-    this.updateState((_state = { ..._state, page }));
+    this.updateState((_state = { ..._state, page, loading: true }));
   }
 
   private updateState(state: HeadlinesState): void {
