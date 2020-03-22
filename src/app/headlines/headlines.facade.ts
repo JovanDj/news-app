@@ -102,8 +102,8 @@ export class HeadlinesFacade {
         switchMap(([searchCriteria, page]: [SearchCriteria, number]) => {
           return this.headlinesService.getHeadlines(searchCriteria, page);
         }),
-        tap((headlinesResponse: HeadlinesResponse) => {
-          this.updateHeadlines(headlinesResponse);
+        tap((headlines: HeadlinesResponse) => {
+          this.updateState({ ..._state, headlines, loading: false });
         })
       )
       .subscribe();
