@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, shareReplay } from "rxjs/operators";
@@ -16,7 +16,7 @@ export class SourcesService {
   getSources(): Observable<SourceResponse> {
     return this.http.get<SourceResponse>(this.URL).pipe(
       shareReplay(),
-      catchError(err => throwError(err))
+      catchError((err: HttpErrorResponse) => throwError(err))
     );
   }
 }

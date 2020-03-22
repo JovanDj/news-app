@@ -47,7 +47,6 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
@@ -91,6 +90,13 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "invoke-injectable": true
-  }
+    "typedef": [true, "call-signature", "parameter"]
+  },
+  "member-ordering": [
+    true,
+    {
+      "order": ["private-instance-field", "private-public-field"],
+      "alphabetize": true
+    }
+  ]
 }

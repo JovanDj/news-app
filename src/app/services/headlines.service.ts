@@ -19,7 +19,7 @@ export class HeadlinesService {
 
   getHeadlines(
     formData: SearchCriteria,
-    page = 1
+    page: number = 1
   ): Observable<HeadlinesResponse> {
     const params: HttpParams = new HttpParams()
       .set("q", formData.topic)

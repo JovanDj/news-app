@@ -1,21 +1,19 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ["./navbar.component.scss"]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   isCollapsed = true;
-  title = 'News App';
-  subtitle = 'Breaking news, huge number of sources';
+  title = "News App";
+  subtitle = "Breaking news, huge number of sources";
 
   constructor() {}
 
-  toggleDropdown() {
+  toggleDropdown(): void {
     this.isCollapsed = !this.isCollapsed;
   }
-
-  ngOnInit() {}
 }

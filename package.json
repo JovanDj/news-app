@@ -45,14 +45,9 @@
     "core-js": "^3.6.4",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
-    "help": "^3.0.2",
     "intl": "^1.2.5",
-    "js-yaml": "^3.13.1",
-    "mime": "^2.4.4",
     "rxjs": "^6.5.4",
     "spinkit": "^2.0.1",
-    "statuses": "^1.5.0",
-    "tmp": "^0.1.0",
     "web-animations-js": "^2.3.2",
     "zone.js": "^0.10.2"
   },
@@ -85,21 +80,9 @@
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
-    "tslint-angular": "^3.0.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.2.0",
     "typescript": "~3.7.5",
     "webpack-cli": "^3.3.11"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && ng-test"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.ts": [
-      "ng lint",
-      "git add"
-    ]
   }
 }

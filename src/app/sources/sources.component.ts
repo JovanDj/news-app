@@ -14,7 +14,7 @@ export class SourcesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.showSpinner = true;
     this.sources = this.route.snapshot.data["sources"];
   }
