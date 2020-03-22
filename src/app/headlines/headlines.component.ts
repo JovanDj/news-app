@@ -20,7 +20,7 @@ export class HeadlinesComponent {
     this.headlinesFacade.updateSearchCriteria(formData);
   }
 
-  pageIncrease(el: HTMLDivElement): void {
+  pageIncrease(el: HTMLElement): void {
     el.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
     this.headlinesFacade.pageIncrease();
