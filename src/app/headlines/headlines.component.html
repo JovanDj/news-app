@@ -1,63 +1,82 @@
 <section class="py-5" #form>
   <div class="row">
     <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-      <app-headlines-form (receiveHeadlines)="receiveHeadlines($event)"></app-headlines-form>
+      <app-headlines-form
+        (receiveHeadlines)="receiveHeadlines($event)"
+      ></app-headlines-form>
     </div>
   </div>
 </section>
 
-<h1 *ngIf="showSpinner">Please wait</h1>
+<ng-container *ngIf="vm$ | async as vm">
+  <h1 *ngIf="vm.loading">Please wait</h1>
 
-<section #headlines_section *ngIf="headlines$ | async as headlines">
-  <article [id]="article.title" class="articles" *ngFor="let article of headlines; index as i">
-    <div class="row">
-      <div class="col-md-7 ">
-        <a [href]="article.url">
-          <img
-            loading="lazy"
-            class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
-            [src]="article.urlToImage"
-            [title]="article.title"
-            [alt]="article.title"
-          />
-        </a>
-      </div>
-      <div class="col-md-5">
-        <div class="article">
-          <h5 class="text-center d-flex justify-content-between align-items-center mb-2">
-            <span class="badge badge-dark align-self-start">{{ i + 1 | number }}</span>
-            <a [href]="article.url">{{ article.title }}</a>
-          </h5>
-          <div class="mb-2">
-            <p>
-              <strong>Source: {{ article.source.name }}</strong>
-            </p>
-            <p>
-              <strong>Author: {{ article.author }}</strong>
-            </p>
-            <p>
-              <strong>{{ article.publishedAt | date: 'mediumDate' }}</strong>
-            </p>
+  <section #headlines_section>
+    <article
+      [id]="article.title"
+      class="articles"
+      *ngFor="let article of vm.headlines.articles; index as i"
+    >
+      <div class="row">
+        <div class="col-md-7 ">
+          <a [href]="article.url">
+            <img
+              loading="lazy"
+              class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
+              [src]="article.urlToImage"
+              [title]="article.title"
+              [alt]="article.title"
+            />
+          </a>
+        </div>
+        <div class="col-md-5">
+          <div class="article">
+            <h5
+              class="text-center d-flex justify-content-between align-items-center mb-2"
+            >
+              <span class="badge badge-dark align-self-start">{{
+                i + 1 | number
+              }}</span>
+              <a [href]="article.url">{{ article.title }}</a>
+            </h5>
+            <div class="mb-2">
+              <p>
+                <strong>Source: {{ article.source.name }}</strong>
+              </p>
+              <p>
+                <strong>Author: {{ article.author }}</strong>
+              </p>
+              <p>
+                <strong>{{ article.publishedAt | date: "mediumDate" }}</strong>
+              </p>
+            </div>
+            <p class="mb-2 lead">{{ article.description }}</p>
+            <a class="btn btn-outline-primary" [href]="article.url"
+              >Read the article</a
+            >
           </div>
-          <p class="mb-2 lead">{{ article.description }}</p>
-          <a class="btn btn-outline-primary" [href]="article.url">Read the article</a>
         </div>
       </div>
-    </div>
-    <hr />
-  </article>
-</section>
+      <hr />
+    </article>
+  </section>
 
-<div *ngIf="headlines$ | async as headlines" class="page-buttons">
-  <button (click)="pageDecrease(form)" *ngIf="(page$ | async) > 1" type="button" class="btn btn-primary float-left">
-    Load less
-  </button>
-  <button
-    *ngIf="headlines.length === (pageSize$ | async)"
-    (click)="pageIncrease(form)"
-    type="button"
-    class="btn btn-primary float-right"
-  >
-    Load more
-  </button>
-</div>
+  <div class="page-buttons">
+    <button
+      (click)="pageDecrease(form)"
+      *ngIf="vm.page > 1"
+      type="button"
+      class="btn btn-primary float-left"
+    >
+      Load less
+    </button>
+    <button
+      *ngIf="vm.headlines.articles.length === vm.searchCriteria.pageSize"
+      (click)="pageIncrease(form)"
+      type="button"
+      class="btn btn-primary float-right"
+    >
+      Load more
+    </button>
+  </div>
+</ng-container>

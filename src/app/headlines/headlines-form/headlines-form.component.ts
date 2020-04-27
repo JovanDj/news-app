@@ -2,11 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  OnInit,
   Output
 } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { debounceTime, distinctUntilChanged, tap } from "rxjs/operators";
 import { SearchCriteria } from "../../models/headline.model";
 
 @Component({
@@ -15,18 +14,30 @@ import { SearchCriteria } from "../../models/headline.model";
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ["./headlines-form.component.scss"]
 })
-export class HeadlinesFormComponent implements OnInit {
+export class HeadlinesFormComponent {
   form: FormGroup;
   minPageSize = 1;
   maxPageSize = 100;
-  defaultPageSize = 20;
+  defaultPageSize = 10;
   multiple = true;
 
   @Output() receiveHeadlines: EventEmitter<SearchCriteria> = new EventEmitter();
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    this.formInit();
 
-  ngOnInit() {
+    this.form.valueChanges
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged(),
+        tap((formData: SearchCriteria) => {
+          this.receiveHeadlines.emit(formData);
+        })
+      )
+      .subscribe();
+  }
+
+  private formInit(): void {
     this.form = this.fb.group({
       topic: [""],
       category: ["general"],
@@ -39,11 +50,5 @@ export class HeadlinesFormComponent implements OnInit {
         ])
       ]
     });
-
-    this.form.valueChanges
-      .pipe(distinctUntilChanged(), debounceTime(100))
-      .subscribe((formData: SearchCriteria) => {
-        this.receiveHeadlines.emit(formData);
-      });
   }
 }

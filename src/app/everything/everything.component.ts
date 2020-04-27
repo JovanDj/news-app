@@ -1,14 +1,14 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { EverythingService } from '../services/everything.service';
-import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { Observable } from "rxjs";
+import { finalize } from "rxjs/operators";
+import { EverythingService } from "../services/everything.service";
 
 @Component({
-  selector: 'app-everything',
-  templateUrl: './everything.component.html',
+  selector: "app-everything",
+  templateUrl: "./everything.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./everything.component.scss']
+  styleUrls: ["./everything.component.scss"]
 })
 export class EverythingComponent {
   showSpinner: Boolean = false;
@@ -19,11 +19,11 @@ export class EverythingComponent {
 
   form = new FormGroup({});
   model = {
-    topic: '',
-    category: ['general'],
-    language: ['en'],
-    page: '1',
-    pageSize: '10'
+    topic: "",
+    category: ["general"],
+    language: ["en"],
+    page: "1",
+    pageSize: "10"
   };
 
   // fields: FormlyFieldConfig[] = [
@@ -71,7 +71,7 @@ export class EverythingComponent {
   //   }
   // ];
 
-  getEverything(searchCriteria: any) {
+  getEverything(searchCriteria: any): void {
     this.showSpinner = true;
     this.everything$ = this.everythingService
       .getEverything(searchCriteria)

@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { Router, Event, NavigationEnd } from '@angular/router';
+import { Component } from "@angular/core";
+import { Router, Event, NavigationEnd } from "@angular/router";
 
 declare var gtag: any;
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
   showSpinner = false;
@@ -16,7 +16,7 @@ export class AppComponent {
       // this.checkRouterEvent(routerEvent);
 
       if (routerEvent instanceof NavigationEnd) {
-        gtag('config', 'G-PM7FDJJRD0', {
+        gtag("config", "G-PM7FDJJRD0", {
           page_path: routerEvent.urlAfterRedirects
         });
       }
