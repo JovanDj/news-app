@@ -16,7 +16,7 @@ cache:
     - ./node_modules
 
 install:
-  - npm ci
+  - npm ci --only-production
 
 script:
   - npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI

@@ -3,6 +3,11 @@
   "version": "1.0.1",
   "license": "MIT",
   "main": "main.js",
+  "author": {
+    "name": "Jovan Djukic",
+    "email": "jovandjukic2@gmail.com"
+  },
+  "engines": {},
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
