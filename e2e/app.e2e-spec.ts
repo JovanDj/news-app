@@ -10,7 +10,7 @@ describe("news-app App", () => {
   it("should show articles", () => {
     page.navigateTo();
     page.tryButton.click();
-    page.submitButton.click();
+    page.topicInput.sendKeys("angular");
 
     expect(page.articles.all.length).toBeGreaterThanOrEqual(1);
   });

@@ -1,15 +1,16 @@
-import { browser, by, element } from "protractor";
+import { browser, by, element, promise } from "protractor";
 
 export class AppPage {
   tryButton = element(by.linkText("Try now!"));
-  submitButton = element(by.buttonText("Submit"));
-  articles = element(by.css("articles#articles"));
+  submitButton = element(by.id("submit"));
+  articles = element(by.id("#articles"));
+  topicInput = element(by.id("topic"));
 
-  navigateTo() {
+  navigateTo(): promise.Promise<any> {
     return browser.get("/");
   }
 
-  getHeadingText() {
+  getHeadingText(): promise.Promise<string> {
     return element(by.css("app-root h1")).getText();
   }
 }
