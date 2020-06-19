@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: "headlines",
     loadChildren: () =>
-      import("./headlines/headlines.module").then(m => m.HeadlinesModule)
+      import("./headlines/headlines.module").then((m) => m.HeadlinesModule)
   },
 
   // {
@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: "sources",
     loadChildren: () =>
-      import("./sources/sources.module").then(m => m.SourcesModule)
+      import("./sources/sources.module").then((m) => m.SourcesModule)
   },
 
   {

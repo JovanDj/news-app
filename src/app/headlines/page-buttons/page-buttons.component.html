@@ -1,0 +1,18 @@
+<div class="page-buttons">
+  <button
+    (click)="onDeacraseClick()"
+    *ngIf="page > 1"
+    type="button"
+    class="btn btn-primary float-left"
+  >
+    Load less
+  </button>
+  <button
+    *ngIf="numberOfArticles === pageSize"
+    (click)="onIncreaseClick()"
+    type="button"
+    class="btn btn-primary float-right"
+  >
+    Load more
+  </button>
+</div>

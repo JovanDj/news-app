@@ -1,0 +1,21 @@
+<div class="article">
+  <h5
+    class="text-center d-flex justify-content-between align-items-center mb-2"
+  >
+    <span class="badge badge-dark align-self-start">{{ i + 1 | number }}</span>
+    <a [href]="article.url">{{ article.title }}</a>
+  </h5>
+  <div class="mb-2">
+    <p>
+      <strong>Source: {{ article.source.name }}</strong>
+    </p>
+    <p>
+      <strong>Author: {{ article.author }}</strong>
+    </p>
+    <p>
+      <strong>{{ article.publishedAt | date: "mediumDate" }}</strong>
+    </p>
+  </div>
+  <p class="mb-2 lead">{{ article.description }}</p>
+  <a class="btn btn-outline-primary" [href]="article.url">Read the article</a>
+</div>

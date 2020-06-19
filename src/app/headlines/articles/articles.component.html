@@ -1,0 +1,28 @@
+<section id="articles">
+  <article
+    [id]="article.title"
+    class="articles"
+    *ngFor="let article of articles; index as i"
+  >
+    <div class="row">
+      <div class="col-md-7">
+        <a [href]="article.url">
+          <img
+            loading="lazy"
+            class="img-fluid img-thumbnail rounded mx-auto d-block border border-light"
+            [src]="article.urlToImage"
+            [title]="article.title"
+            [alt]="article.title"
+          />
+        </a>
+      </div>
+      <div class="col-md-5">
+        <app-article-description
+          [article]="article"
+          [i]="i"
+        ></app-article-description>
+      </div>
+    </div>
+    <hr />
+  </article>
+</section>

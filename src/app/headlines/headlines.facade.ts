@@ -7,7 +7,6 @@ import { HeadlinesService } from "../services/headlines.service";
 export interface HeadlinesState {
   headlines: HeadlinesResponse;
   searchCriteria: SearchCriteria;
-  page: number;
   loading: boolean;
 }
 
@@ -24,7 +23,6 @@ let _state: HeadlinesState = {
     topic: "",
     page: 1
   },
-  page: 1,
   loading: false
 };
 
@@ -37,13 +35,15 @@ export class HeadlinesFacade {
 
   headlines$: Observable<HeadlinesResponse>;
   searchCriteria$: Observable<SearchCriteria>;
-  page$: Observable<number>;
-  loading$: Observable<boolean>;
+  page$: Observable<SearchCriteria["page"]>;
+  loading$: Observable<HeadlinesState["loading"]>;
   vm$: Observable<HeadlinesState>;
 
   constructor(private headlinesService: HeadlinesService) {
     this.store = new BehaviorSubject<HeadlinesState>(_state);
     this.state$ = this.store.asObservable();
+
+    this.state$.subscribe((state) => console.log(state));
 
     this.headlines$ = this.state$.pipe(
       map((state: HeadlinesState) => {
@@ -61,7 +61,7 @@ export class HeadlinesFacade {
 
     this.page$ = this.state$.pipe(
       map((state: HeadlinesState) => {
-        return state.page;
+        return state.searchCriteria.page;
       }),
       distinctUntilChanged()
     );
@@ -79,28 +79,22 @@ export class HeadlinesFacade {
       this.page$,
       this.loading$
     ).pipe(
-      map(
-        ([headlines, searchCriteria, page, loading]: [
-          HeadlinesResponse,
-          SearchCriteria,
-          number,
-          boolean
-        ]) => {
-          return {
-            headlines,
-            searchCriteria,
-            page,
-            loading
-          };
-        }
-      )
+      map(([headlines, searchCriteria, page, loading]) => {
+        return {
+          headlines,
+          searchCriteria,
+          page,
+          loading
+        };
+      })
     );
 
     // Get headlines on search criteria change
-    combineLatest(this.searchCriteria$, this.page$)
+    combineLatest(this.searchCriteria$)
       .pipe(
-        switchMap(([searchCriteria, page]: [SearchCriteria, number]) => {
-          return this.headlinesService.getHeadlines(searchCriteria, page);
+        switchMap(([searchCriteria]) => {
+          console.log(searchCriteria);
+          return this.headlinesService.getHeadlines(searchCriteria);
         }),
         tap((headlines: HeadlinesResponse) => {
           this.updateState({ ..._state, headlines, loading: false });
@@ -110,23 +104,32 @@ export class HeadlinesFacade {
   }
 
   updateHeadlines(headlines: HeadlinesResponse): void {
-    this.updateState((_state = { ..._state, headlines, loading: true }));
+    this.updateState({ ..._state, headlines, loading: true });
   }
 
   updateSearchCriteria(searchCriteria: SearchCriteria): void {
-    this.updateState((_state = { ..._state, searchCriteria, loading: true }));
+    this.updateState({ ..._state, searchCriteria, loading: true });
   }
 
   pageIncrease(): void {
-    const page: number = ++_state.page;
+    const newPage = _state.searchCriteria.page + 1;
 
-    this.updateState((_state = { ..._state, page, loading: true }));
+    this.updateState({
+      ..._state,
+      searchCriteria: {
+        ..._state.searchCriteria,
+        page: newPage
+      }
+    });
   }
 
   pageDecrease(): void {
-    const page: number = --_state.page;
+    const page: number = _state.searchCriteria.page - 1;
 
-    this.updateState((_state = { ..._state, page, loading: true }));
+    this.updateState({
+      ..._state,
+      searchCriteria: { ..._state.searchCriteria, page }
+    });
   }
 
   private updateState(state: HeadlinesState): void {

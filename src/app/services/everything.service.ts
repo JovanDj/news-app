@@ -22,6 +22,6 @@ export class EverythingService {
 
     return this.http
       .get<any>(this.url, { params })
-      .pipe(catchError(err => throwError(err)));
+      .pipe(catchError((err) => throwError(err)));
   }
 }

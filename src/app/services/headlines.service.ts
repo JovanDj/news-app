@@ -17,16 +17,13 @@ export class HeadlinesService {
 
   constructor(private http: HttpClient) {}
 
-  getHeadlines(
-    formData: SearchCriteria,
-    page: number = 1
-  ): Observable<HeadlinesResponse> {
+  getHeadlines(searchCriteria: SearchCriteria): Observable<HeadlinesResponse> {
     const params: HttpParams = new HttpParams()
-      .set("q", formData.topic)
-      .set("pageSize", formData.pageSize.toString())
-      .set("page", page.toString())
-      .set("category", formData.category)
-      .set("country", formData.country);
+      .set("q", searchCriteria.topic)
+      .set("pageSize", searchCriteria.pageSize.toString())
+      .set("page", searchCriteria.page.toString())
+      .set("category", searchCriteria.category)
+      .set("country", searchCriteria.country);
 
     return this.http
       .get<HeadlinesResponse>(this.URL, { params })
