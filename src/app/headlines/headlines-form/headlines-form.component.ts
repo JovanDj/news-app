@@ -21,7 +21,7 @@ export class HeadlinesFormComponent {
   defaultPageSize = 10;
   multiple = true;
 
-  @Output() receiveHeadlines: EventEmitter<SearchCriteria> = new EventEmitter();
+  @Output() formChange = new EventEmitter<SearchCriteria>();
 
   constructor(private fb: FormBuilder) {
     this.formInit();
@@ -31,7 +31,7 @@ export class HeadlinesFormComponent {
         debounceTime(400),
         distinctUntilChanged(),
         tap((formData: SearchCriteria) => {
-          this.receiveHeadlines.emit(formData);
+          this.formChange.emit(formData);
         })
       )
       .subscribe();

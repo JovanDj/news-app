@@ -16,7 +16,7 @@ export class HeadlinesComponent {
     this.vm$ = headlinesFacade.vm$;
   }
 
-  receiveHeadlines(formData: SearchCriteria): void {
+  onFormChange(formData: SearchCriteria): void {
     this.headlinesFacade.updateSearchCriteria(formData);
   }
 

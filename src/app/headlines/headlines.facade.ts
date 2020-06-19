@@ -108,7 +108,16 @@ export class HeadlinesFacade {
   }
 
   updateSearchCriteria(searchCriteria: SearchCriteria): void {
-    this.updateState({ ..._state, searchCriteria, loading: true });
+    const newSearchCriteria: SearchCriteria = {
+      ...searchCriteria,
+      page: _state.searchCriteria.page
+    };
+
+    this.updateState({
+      ..._state,
+      searchCriteria: newSearchCriteria,
+      loading: true
+    });
   }
 
   pageIncrease(): void {

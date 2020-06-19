@@ -23,6 +23,6 @@ export interface SearchCriteria {
   topic: string;
   category: string;
   country: string;
-  page: number;
+  page?: number;
   pageSize: number;
 }
