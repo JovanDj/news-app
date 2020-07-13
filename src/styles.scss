@@ -1,15 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'variables';
+@import "variables";
 
-@import '../node_modules/bootswatch/dist/sketchy/variables';
-@import '../node_modules/bootstrap-scss/bootstrap';
-@import '../node_modules/bootswatch/dist/sketchy/bootswatch';
-
-@import '../node_modules/font-awesome/scss/font-awesome';
-
-// body {
-//     background-image: url('assets/bg.jpg');
-//     background-attachment: fixed;
-//     background-size: cover;
-// }
+@import "~bootswatch/dist/sketchy/variables";
+@import "~bootstrap-scss/bootstrap";
+@import "~bootswatch/dist/sketchy/bootswatch";
