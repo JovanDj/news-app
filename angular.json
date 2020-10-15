@@ -43,7 +43,6 @@
               "buildOptimizer": true,
               "serviceWorker": false,
               "ngswConfigPath": "src/ngsw-config.json",
-              "baseHref": "https://jovandj.github.io/news-app/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
