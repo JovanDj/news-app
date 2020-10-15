@@ -41,7 +41,7 @@
               "vendorChunk": true,
               "commonChunk": true,
               "buildOptimizer": true,
-              "serviceWorker": true,
+              "serviceWorker": false,
               "ngswConfigPath": "src/ngsw-config.json",
               "baseHref": "https://jovandj.github.io/news-app/",
               "fileReplacements": [
