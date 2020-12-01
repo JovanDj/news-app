@@ -20,36 +20,6 @@
             "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"],
             "styles": ["src/styles.scss"],
             "scripts": []
-          },
-          "configurations": {
-            "hmr": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.hmr.ts"
-                }
-              ]
-            },
-            "production": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": true,
-              "commonChunk": true,
-              "buildOptimizer": true,
-              "serviceWorker": false,
-              "ngswConfigPath": "src/ngsw-config.json",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            }
           }
         },
         "serve": {
