@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HeadlinesFormComponent } from "./headlines-form.component";
 
@@ -6,7 +6,7 @@ describe("HeadlinesFormComponent", () => {
   let component: HeadlinesFormComponent;
   let fixture: ComponentFixture<HeadlinesFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
       declarations: [HeadlinesFormComponent]

@@ -1,12 +1,12 @@
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { HeadlinesComponent } from "./headlines.component";
 
 describe("HeadlinesComponent", () => {
   let component: HeadlinesComponent;
   let fixture: ComponentFixture<HeadlinesComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [HeadlinesComponent]
